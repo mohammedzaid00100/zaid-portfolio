@@ -25,16 +25,12 @@
     "impact": "Successful project — live demo deployed on Netlify.",
     "demoUrl": "https://6a6258c351cca1cc83bbe373--funny-buttercream-93522c.netlify.app/",
     "githubUrl": null,
-    "screenshots": [
-      {
-        "src": "assets/images/project-placeholder.svg",
-        "alt": "Placeholder screenshot for TimeDesk — replace with a real TimeDesk screenshot."
-      },
-      {
-        "src": "assets/images/project-placeholder-2.svg",
-        "alt": "Second placeholder screenshot for TimeDesk — replace with a real TimeDesk screenshot."
-      }
-    ],
+"screenshots": [
+  {
+    "src": "assets/images/timedesk.png",
+    "alt": "TimeDesk web application screenshot."
+  }
+]
     "readmeTitle": "TimeDesk README",
     "readmeSections": [
       {
@@ -97,12 +93,12 @@
     "impact": "Failed / incomplete project — kept as an archived learning project rather than presented as a finished product.",
     "demoUrl": null,
     "githubUrl": null,
-    "screenshots": [
-      {
-        "src": "assets/images/project-placeholder.svg",
-        "alt": "Placeholder project preview for Daily Routine Scheduler — replace with a real screenshot if desired."
-      }
-    ],
+ "screenshots": [
+  {
+    "src": "assets/images/daily-routine-notes.png",
+    "alt": "Daily Routine Scheduler project notes and documentation."
+  }
+]
     "readmeTitle": "Daily Routine Scheduler README",
     "readmeSections": [
       {
@@ -157,12 +153,12 @@
     "impact": "Failed / incomplete project — no longer under active development and not production-ready.",
     "demoUrl": null,
     "githubUrl": null,
-    "screenshots": [
-      {
-        "src": "assets/images/project-placeholder.svg",
-        "alt": "Placeholder project preview for PlotGraphify — replace with a real screenshot if desired."
-      }
-    ],
+"screenshots": [
+  {
+    "src": "assets/images/plotgraphify-notes.png",
+    "alt": "PlotGraphify project notes and documentation."
+  }
+]
     "readmeTitle": "PlotGraphify README",
     "readmeSections": [
       {
