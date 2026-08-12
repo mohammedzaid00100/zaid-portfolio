@@ -1,0 +1,16 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1726"/><stop offset="1" stop-color="#15273A"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4DE3DA" stop-opacity=".7"/><stop offset="1" stop-color="#8D78FF" stop-opacity=".55"/></linearGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#bg)"/>
+  <rect x="80" y="75" width="1120" height="650" rx="28" fill="#FFFFFF" fill-opacity=".05" stroke="#FFFFFF" stroke-opacity=".16"/>
+  <rect x="115" y="120" width="250" height="560" rx="20" fill="#FFFFFF" fill-opacity=".045"/>
+  <rect x="400" y="120" width="765" height="74" rx="18" fill="#FFFFFF" fill-opacity=".06"/>
+  <rect x="400" y="220" width="365" height="190" rx="18" fill="url(#accent)" fill-opacity=".28"/>
+  <rect x="785" y="220" width="380" height="190" rx="18" fill="#FFFFFF" fill-opacity=".06"/>
+  <rect x="400" y="438" width="765" height="242" rx="18" fill="#FFFFFF" fill-opacity=".04"/>
+  <circle cx="155" cy="164" r="9" fill="#4DE3DA"/>
+  <rect x="182" y="150" width="130" height="12" rx="6" fill="#FFFFFF" fill-opacity=".34"/>
+  <text x="80" y="765" fill="#B9C7DA" font-family="Arial, sans-serif" font-size="24">PLACEHOLDER SCREENSHOT — replace with a real project image</text>
+</svg>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mohammed Zaid — higher-secondary student building practical software projects with modern web technologies.">
+  <meta name="theme-color" content="#08111f">
+  <title>Mohammed Zaid — Portfolio</title>
+  <link rel="preload" href="assets/images/hero-bg.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="ambient ambient-c" aria-hidden="true"></div>
+
+  <header class="site-header glass" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Mohammed Zaid home">MZ</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <span aria-hidden="true">☼</span>
+        </button>
+        <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile navigation" hidden>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy glass glass-strong">
+          <p class="eyebrow">Student • Builder • Curious by default</p>
+          <h1 id="hero-title">Mohammed Zaid</h1>
+          <p class="hero-tagline">I turn curiosity into practical software projects, learn by building, and aim to create work that is useful in the real world.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View projects <span aria-hidden="true">→</span></a>
+            <a class="btn btn-secondary" href="#contact">Contact me</a>
+          </div>
+          <div class="hero-pills" aria-label="Highlights">
+            <span class="pill">Web Development</span>
+            <span class="pill">AI-assisted Building</span>
+            <span class="pill">Continuous Learning</span>
+          </div>
+        </div>
+        <div class="hero-visual glass" aria-label="Abstract liquid glass visualization">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="hero-illustration" aria-hidden="true">
+            <div class="code-window glass-strong">
+              <div class="window-bar"><span></span><span></span><span></span></div>
+              <div class="code-lines">
+                <span class="code-line long"></span>
+                <span class="code-line mid"></span>
+                <span class="code-line short"></span>
+                <span class="code-line long"></span>
+                <span class="code-line tiny"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Curiosity with a direction.</h2>
+        </div>
+        <article class="glass about-card">
+          <p>Higher-secondary student pursuing a medical career, continuously building projects out of curiosity and looking forward to shaping that curiosity into meaningful contributions for your organization.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading heading-row">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2 id="projects-title">Built to learn. Built to ship.</h2>
+          </div>
+          <div class="filter-bar" role="toolbar" aria-label="Filter projects by technology">
+            <button class="filter-chip active" data-filter="all" type="button">All</button>
+            <button class="filter-chip" data-filter="javascript" type="button">JavaScript</button>
+            <button class="filter-chip" data-filter="react" type="button">React</button>
+            <button class="filter-chip" data-filter="node" type="button">Node.js</button>
+            <button class="filter-chip" data-filter="pwa" type="button">PWA</button>
+          </div>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <p class="empty-state glass" id="projectsEmpty" hidden>No projects match that filter.</p>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2 id="skills-title">The stack behind the projects.</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="glass skill-card"><h3>Frontend</h3><div class="tag-cloud"><span>JavaScript</span><span>React</span><span>HTML5</span><span>CSS3</span></div></article>
+          <article class="glass skill-card"><h3>Backend</h3><div class="tag-cloud"><span>Node.js</span><span>Express</span></div></article>
+          <article class="glass skill-card"><h3>Tools</h3><div class="tag-cloud"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Postman</span><span>Figma</span></div></article>
+          <article class="glass skill-card"><h3>Cloud / DevOps</h3><div class="tag-cloud"><span>Vercel</span><span>Netlify</span><span>GitHub Actions</span><span>Heroku</span><span>Cloudflare</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Let's build something useful.</h2>
+          </div>
+          <div class="contact-card glass">
+            <a href="mailto:mohammedzaid00100@gmail.com"><span class="contact-label">Email</span><span>mohammedzaid00100@gmail.com</span></a>
+            <a href="tel:+917441109846"><span class="contact-label">Phone</span><span>+91 7441109846</span></a>
+            <a class="resume-link" href="assets/Mohammed-Zaid-Resume.pdf" download><span class="contact-label">Resume</span><span>Download resume <span aria-hidden="true">↗</span></span></a>
+          </div>
+        </div>
+
+        <form class="glass contact-form" id="contactForm" novalidate>
+          <div class="form-field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required minlength="2" placeholder="Your name"><small class="field-error" id="nameError"></small></div>
+          <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"><small class="field-error" id="emailError"></small></div>
+          <div class="form-field"><label for="message">Message</label><textarea id="message" name="message" rows="5" required minlength="10" placeholder="Tell me a little about the opportunity."></textarea><small class="field-error" id="messageError"></small></div>
+          <button class="btn btn-primary" type="submit">Send message <span aria-hidden="true">→</span></button>
+          <p class="form-note">Client-side demo only. Connect this form to Formspree, Netlify Forms, or your own endpoint before production use.</p>
+          <p class="success-message" id="formSuccess" role="status" hidden>Thanks — your message passed validation. Connect a backend endpoint to actually send it.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Mohammed Zaid</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle">
+    <div class="modal-shell glass-strong">
+      <button class="modal-close icon-button" id="modalClose" type="button" aria-label="Close project details">×</button>
+      <div class="modal-content">
+        <div class="modal-media">
+          <img id="modalImage" src="assets/images/project-placeholder.svg" alt="" loading="lazy">
+          <div class="modal-dots" id="modalDots" aria-label="Project screenshots"></div>
+        </div>
+        <div class="modal-info">
+          <p class="eyebrow" id="modalCategory"></p>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <div class="modal-meta" id="modalTech"></div>
+          <div class="detail-block"><h3>Key Features</h3><ul id="modalFeatures"></ul></div>
+          <div class="detail-block"><h3>AI Role</h3><p id="modalAiRole"></p></div>
+          <div class="detail-block"><h3>Impact & Status</h3><p id="modalImpact"></p></div>
+          <div class="modal-actions"><a class="btn btn-primary" id="modalDemo" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" id="modalGithub" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><details class="readme-details"><summary><span id="modalReadmeTitle">Project README</span></summary><div id="modalReadme" class="readme-content"></div></details>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <noscript><div class="noscript-banner">JavaScript is required for project loading, filtering, the modal viewer, and theme persistence.</div></noscript>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
