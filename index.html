@@ -141,13 +141,13 @@
           </div>
         </div>
 
-        <form class="glass contact-form" id="contactForm" novalidate>
+        <form class="glass contact-form" id="contactForm" action="https://formspree.io/f/xeajknlo" method="POST" novalidate>
           <div class="form-field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required minlength="2" placeholder="Your name"><small class="field-error" id="nameError"></small></div>
           <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"><small class="field-error" id="emailError"></small></div>
           <div class="form-field"><label for="message">Message</label><textarea id="message" name="message" rows="5" required minlength="10" placeholder="Tell me a little about the opportunity."></textarea><small class="field-error" id="messageError"></small></div>
           <button class="btn btn-primary" type="submit">Send message <span aria-hidden="true">→</span></button>
-          <p class="form-note">Client-side demo only. Connect this form to Formspree, Netlify Forms, or your own endpoint before production use.</p>
-          <p class="success-message" id="formSuccess" role="status" hidden>Thanks — your message passed validation.</p>
+          <p class="form-note">Messages are delivered securely through Formspree.</p>
+          <p class="success-message" id="formSuccess" role="status" hidden>Thanks for reaching out. Your message has been received.</p>
         </form>
       </div>
     </section>
