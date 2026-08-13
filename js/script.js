@@ -205,16 +205,42 @@ function initContactForm() {
   const messageError = $('#messageError');
   const success = $('#formSuccess');
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     success.hidden = true;
     const goodName = validateField(name, nameError, 'Please enter at least 2 characters.');
     const goodEmail = validateField(email, emailError, 'Please enter a valid email address.');
     const goodMessage = validateField(message, messageError, 'Please enter at least 10 characters.');
-    if (goodName && goodEmail && goodMessage) {
+    if (!(goodName && goodEmail && goodMessage)) return;
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalLabel = submitButton?.innerHTML || '';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Sending…';
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Form submission failed.');
+
       form.reset();
       [name, email, message].forEach((field) => field.removeAttribute('aria-invalid'));
+      success.textContent = 'Thanks for reaching out. Your message has been received.';
       success.hidden = false;
+    } catch (error) {
+      success.textContent = 'Sorry, your message could not be sent right now. Please email me directly at mohammedzaid00100@gmail.com.';
+      success.hidden = false;
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalLabel;
+      }
     }
   });
 }
