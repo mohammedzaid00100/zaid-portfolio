@@ -1,132 +1,54 @@
-# Mohammed Zaid — Personal Portfolio
+# Mohammed Zaid — Portfolio
 
-A responsive personal portfolio website for **Mohammed Zaid**, built with plain HTML, CSS, and JavaScript. The site presents my background, technical skills, projects, and contact information through a modern liquid-glass interface.
+A portfolio built with HTML, CSS, and vanilla JavaScript. The redesign uses oversized typography, a cobalt blue accent, a light hero and dark content sections, interactive type distortion, scroll reveals, expandable expertise rows, and large project covers.
 
-## 🌐 Live Demo
+[Live portfolio](https://zaid-portfolio-mocha.vercel.app/)
 
-> Add your deployed portfolio URL here after publishing.
+## Projects
 
-## ✨ Highlights
+The catalogue was checked against the public repositories and GitHub profile README on 8 September 2026.
 
-- Responsive, mobile-first design
-- Liquid glass / glassmorphism UI
-- Dark and light theme toggle
-- Accessible semantic HTML and keyboard-friendly interactions
-- Project filtering and interactive project detail modals
-- Downloadable resume
-- Client-side contact form validation
-- Reduced-motion support
-- Minimal external dependencies
+| Project | Presentation |
+| --- | --- |
+| Web to EXE | Product/download website; the linked repository is not the desktop packaging engine |
+| TimeDesk | Clock, timer, and stopwatch; live demo and source |
+| Nalanda School | Multi-page school information website; source |
+| Collab Deal OS | Discontinued prototype; clearly labelled demo only |
+| PlotGraphify | Incomplete, archived PWA experiment |
+| Daily Routine Scheduler | Incomplete scheduling experiment |
 
-## 🚀 Featured Project
+Three separate projects were missing from the old portfolio: Web to EXE's website, Nalanda, and Collab Deal OS. The profile also lists this portfolio itself; it is not repeated as its own project card. A fourth separate missing project could not be verified from the connected repositories.
 
-### TimeDesk
+## Local preview
 
-**TimeDesk** is a clean, minimal web app providing a Clock, Timer, and Stopwatch. It includes a launcher with a side panel and opens each tool in a separate browser tab.
+Run `python -m http.server 8000` in the repository directory and open `http://localhost:8000`. Serving over HTTP allows the project JSON to load. No dependency install or build step is needed.
 
-**Tech:** HTML, CSS, JavaScript
+## Add or update a project
 
-**Live Demo:**  
-https://6a6258c351cca1cc83bbe373--funny-buttercream-93522c.netlify.app/
+Edit `data/projects.json`. Copy an existing object and update its unique `id`, name, description, `visualLabel` (use ` / ` to separate two display lines), technology list, tags, status, features, and links. Keep `demoUrl` null if there is no verified public demo. `screenshots` can be an empty array; add only real project images or clearly described project notes.
 
-**Key features:**
-- 24-hour digital clock
-- Timer with Start and Reset controls
-- Stopwatch with Start, Stop, and Reset controls
-- Launcher navigation
-- Dark theme and font customization
+Add a `.cover-YOUR-ID` rule to `css/style.css` for an optional project-specific background and text colour. Otherwise the cobalt cover is used. Covers are typographic project identities, not screenshots of the linked applications.
 
-## 📁 Other Projects
+The `tags` values support `javascript`, `react`, `node`, and `pwa`. Keep project status honest, especially for archived experiments. All card data and detail content come from the JSON catalogue.
 
-### Daily Routine Scheduler
+## Design and interactions
 
-An experimental task-management project designed to add tasks, schedule reminders up to seven days ahead, and provide a persistent monthly dashboard.
+- Original implementation inspired by the supplied portfolio recording. The video shows a finished site, not readable source code, so no claim is made about its framework or exact implementation.
+- Locally hosted Anton font (SIL Open Font License included in `assets/fonts/OFL.txt`). System sans-serif for body text.
+- Lightweight pointer-driven SVG displacement on the desktop hero; no distortion on mobile.
+- Native disclosure elements for expertise and a native dialog for project details.
+- Project filtering, screenshot navigation where applicable, light/dark theme switching, mobile menu, keyboard support, and reduced-motion support.
+- An explicit animation toggle and a brief, nonblocking opening transition; no fake loading percentage or scroll hijacking.
+- The existing resume and Formspree endpoint are retained. The form validates input and shows success only after a successful response. Use a real authorised submission to verify delivery; automated QA must not send messages.
 
-**Tech:** React, Vite, Tailwind CSS, Chart.js, Node.js, Express, MongoDB
+## Files
 
-**Status:** Archived / unsuccessful build. Kept in the portfolio as part of the development and learning journey.
+- `index.html`: sections, navigation, contact form, dialog.
+- `css/style.css`: palette, layouts, responsive rules, animation.
+- `js/script.js`: catalogue, filters, detail viewer, form, motion, theme.
+- `data/projects.json`: project content.
+- `assets/`: existing resume, project notes, and licensed display font.
 
-### PlotGraphify
+## Deployment
 
-An experimental Progressive Web App concept created to generate line graphs from custom data and manage them locally with an offline-first approach.
-
-**Tech:** HTML5, CSS3, Vanilla JavaScript
-
-**Status:** Incomplete and no longer under active development. Included as a learning project documenting experimentation with PWA concepts, UI/UX, JavaScript, debugging, and project planning.
-
-## 🛠️ Skills
-
-**Frontend**
-- JavaScript
-- React
-- HTML5
-- CSS3
-
-**Backend**
-- Node.js
-- Express
-
-**Tools**
-- Git
-- GitHub
-- VS Code
-- Postman
-- Figma
-
-**Cloud / DevOps**
-- Vercel
-- Netlify
-- GitHub Actions
-- Heroku
-- Cloudflare
-
-## 📂 Project Structure
-
-```text
-/
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── data/
-│   └── projects.json
-├── assets/
-│   ├── images/
-│   └── Mohammed-Zaid-Resume.pdf
-└── README.md
-```
-
-## 📄 Resume
-
-A downloadable copy of my resume is included in the website under:
-
-```text
-assets/Mohammed-Zaid-Resume.pdf
-```
-
-## 📬 Contact
-
-**Email:** mohammedzaid00100@gmail.com  
-**Phone:** +91 7441109846
-
-## 🧩 Technologies Used
-
-This portfolio itself uses:
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- JSON for project metadata
-
-No frontend framework is required for the portfolio website.
-
-## 📌 About
-
-> Higher-secondary student pursuing a medical career, continuously building projects out of curiosity and looking forward to shaping that curiosity into meaningful contributions for your organization.
-
----
-
-### Note
-
-This repository represents my current portfolio and development journey. Not every project shown here is a finished or production-ready product; some are included to document experimentation, learning, and lessons from unsuccessful builds.
+The existing Vercel GitHub integration publishes the static repository from `main`. No additional hosting provider or build configuration is required. The redesign preserves the original asset paths and repository history.

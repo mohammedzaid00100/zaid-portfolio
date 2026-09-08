@@ -1,5 +1,45 @@
 [
   {
+    "id": "web-to-exe",
+    "name": "Web to EXE",
+    "category": "Product website",
+    "featured": true,
+    "statusLabel": "Website built",
+    "description": "A product and download website for a Windows utility that packages supported web-project ZIPs into desktop applications locally.",
+    "whatItDoes": "A product and download website for a Windows utility that packages supported web-project ZIPs into desktop applications locally.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "tags": [
+      "javascript"
+    ],
+    "features": [
+      "Local ZIP-to-EXE workflow explained",
+      "Supported project guidance",
+      "Windows download experience",
+      "Responsive layout and scroll effects"
+    ],
+    "aiRole": "AI-assisted development and iteration.",
+    "impact": "This repository contains the product website, not the desktop packaging engine. Web to EXE V1 focuses on basic local Windows packaging.",
+    "demoUrl": null,
+    "githubUrl": "https://github.com/mohammedzaid00100/Web-to-EXE-website",
+    "screenshots": [],
+    "visualLabel": "WEB / TO EXE",
+    "readmeTitle": "Project notes",
+    "readmeSections": [
+      {
+        "heading": "Repository scope",
+        "text": "This repository contains the product website, not the desktop packaging engine. Web to EXE V1 focuses on basic local Windows packaging."
+      },
+      {
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/Web-to-EXE-website"
+      }
+    ]
+  },
+  {
     "id": "timedesk",
     "name": "TimeDesk",
     "category": "Featured Project",
@@ -23,16 +63,12 @@
     ],
     "aiRole": "AI-assisted iteration focused on structuring the interface, refining code, and debugging workflow.",
     "impact": "Successful project — live demo deployed on Netlify.",
-    "demoUrl": "https://6a6258c351cca1cc83bbe373--funny-buttercream-93522c.netlify.app/",
-    "githubUrl": null,
+    "demoUrl": "https://timedeskofficial.netlify.app/",
+    "githubUrl": "https://github.com/mohammedzaid00100/TimeDesk",
     "screenshots": [
       {
         "src": "assets/images/timedesk.png",
-        "alt": "Placeholder screenshot for TimeDesk — replace with a real TimeDesk screenshot."
-      },
-      {
-        "src": "assets/images/timedesk.png",
-        "alt": "Second placeholder screenshot for TimeDesk — replace with a real TimeDesk screenshot."
+        "alt": "TimeDesk clock, timer, and stopwatch interface"
       }
     ],
     "readmeTitle": "TimeDesk README",
@@ -40,10 +76,6 @@
       {
         "heading": "Overview",
         "text": "A clean, minimal web app that provides a Clock, Timer, and Stopwatch. Includes a launcher page with a left side panel that opens each tool in a separate browser tab, plus individual pages for each tool. Ready for GitHub Pages."
-      },
-      {
-        "heading": "Demo",
-        "text": "Live demo: https://6a6258c351cca1cc83bbe373--funny-buttercream-93522c.netlify.app/"
       },
       {
         "heading": "Features",
@@ -57,76 +89,92 @@
         ]
       },
       {
-        "heading": "Run locally",
-        "items": [
-          "Clone the repository: git clone https://github.com/mohammedzaid00100/repo-name.git",
-          "cd repo-name"
-        ]
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/TimeDesk"
+      }
+    ],
+    "visualLabel": "TIME / DESK"
+  },
+  {
+    "id": "nalanda",
+    "name": "Nalanda School",
+    "category": "School website",
+    "featured": true,
+    "statusLabel": "Website built",
+    "description": "A multi-page information website for Nalanda English Medium Higher Secondary School, covering academics, admissions, campus life, and essential school information.",
+    "whatItDoes": "A multi-page information website for Nalanda English Medium Higher Secondary School, covering academics, admissions, campus life, and essential school information.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON"
+    ],
+    "tags": [
+      "javascript"
+    ],
+    "features": [
+      "Academics and admissions pages",
+      "Campus and student-life information",
+      "School rules and disclosures",
+      "Contact information"
+    ],
+    "aiRole": "AI-assisted development and iteration.",
+    "impact": "Source code for the school website. No independently verified public deployment is linked.",
+    "demoUrl": null,
+    "githubUrl": "https://github.com/mohammedzaid00100/Nalanda-Engish-Medium-Higher-Secondary-School",
+    "screenshots": [],
+    "visualLabel": "NALANDA / SCHOOL",
+    "readmeTitle": "Project notes",
+    "readmeSections": [
+      {
+        "heading": "Repository scope",
+        "text": "Source code for the school website. No independently verified public deployment is linked."
+      },
+      {
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/Nalanda-Engish-Medium-Higher-Secondary-School"
       }
     ]
   },
   {
-    "id": "daily-routine-scheduler",
-    "name": "Daily Routine Scheduler",
-    "category": "Archived / Failed Project",
-    "featured": false,
-    "statusLabel": "Incomplete",
-    "description": "A minimal web app designed to add tasks, schedule reminders up to 7 days ahead, and view a persistent monthly dashboard.",
-    "whatItDoes": "Combines task creation, reminder scheduling, and a persistent monthly productivity dashboard.",
+    "id": "collab-deal-os",
+    "name": "Collab Deal OS",
+    "category": "Product prototype",
+    "featured": true,
+    "statusLabel": "Discontinued · demo only",
+    "description": "A creator–brand collaboration prototype with onboarding, campaign discovery, structured offers, and a deal advisor.",
+    "whatItDoes": "A creator–brand collaboration prototype with onboarding, campaign discovery, structured offers, and a deal advisor.",
     "tech": [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Chart.js",
-      "Node.js",
-      "Express",
-      "MongoDB"
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Node.js"
     ],
     "tags": [
       "javascript",
-      "react",
       "node"
     ],
     "features": [
-      "Task creation and tracking",
-      "Reminders scheduled up to 7 days ahead",
-      "Persistent monthly dashboard",
-      "Frontend and backend architecture with MongoDB"
+      "Creator and brand dashboards",
+      "Campaign and opportunity discovery",
+      "Offer review and revision flows",
+      "Rule-based deal pricing estimates"
     ],
-    "aiRole": "Not specified in the supplied project files.",
-    "impact": "Failed / incomplete project — kept as an archived learning project rather than presented as a finished product.",
-    "demoUrl": null,
-    "githubUrl": null,
-    "screenshots": [
-      {
-        "src": "assets/images/daily-routine-notes.png",
-        "alt": "Placeholder project preview for Daily Routine Scheduler — replace with a real screenshot if desired."
-      }
-    ],
-    "readmeTitle": "Daily Routine Scheduler README",
+    "aiRole": "AI-assisted development and iteration.",
+    "impact": "Discontinued. Retained as a demonstration of the product concept; authentication, production integrations, persistence, and stability remain incomplete.",
+    "demoUrl": "https://collab-deal-os.onrender.com/",
+    "githubUrl": "https://github.com/mohammedzaid00100/collab-deal-os",
+    "screenshots": [],
+    "visualLabel": "COLLAB / DEAL OS",
+    "readmeTitle": "Project notes",
     "readmeSections": [
       {
-        "heading": "Overview",
-        "text": "A minimal, robust web app to add tasks, schedule reminders (up to 7 days ahead), and view a persistent monthly dashboard."
+        "heading": "Repository scope",
+        "text": "Discontinued. Retained as a demonstration of the product concept; authentication, production integrations, persistence, and stability remain incomplete."
       },
       {
-        "heading": "Quick start",
-        "items": [
-          "Copy files into a new project folder.",
-          "Create .env from env.example and set values.",
-          "Install dependencies with npm install.",
-          "Seed sample data (optional) with npm run seed.",
-          "Start backend with npm run dev:server.",
-          "Start frontend with npm run dev:client."
-        ]
-      },
-      {
-        "heading": "Tech stack",
-        "items": [
-          "Frontend: React + Vite + Tailwind CSS + Chart.js",
-          "Backend: Node.js + Express",
-          "Database: MongoDB (Mongoose)"
-        ]
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/collab-deal-os"
       }
     ]
   },
@@ -156,11 +204,11 @@
     "aiRole": "Not specified in the supplied project files.",
     "impact": "Failed / incomplete project — no longer under active development and not production-ready.",
     "demoUrl": null,
-    "githubUrl": null,
+    "githubUrl": "https://github.com/mohammedzaid00100/PlotGraphify",
     "screenshots": [
       {
         "src": "assets/images/plotgraphify-notes.png",
-        "alt": "Placeholder project preview for PlotGraphify — replace with a real screenshot if desired."
+        "alt": "Original PlotGraphify project notes"
       }
     ],
     "readmeTitle": "PlotGraphify README",
@@ -198,6 +246,73 @@
         "heading": "Why it remains public",
         "text": "The project represents an experiment and a learning record around web development, debugging, project planning, and the challenges of building a complete application from scratch."
       }
-    ]
+    ],
+    "visualLabel": "PLOT / GRAPHIFY"
+  },
+  {
+    "id": "daily-routine-scheduler",
+    "name": "Daily Routine Scheduler",
+    "category": "Archived / Failed Project",
+    "featured": false,
+    "statusLabel": "Incomplete",
+    "description": "A minimal web app designed to add tasks, schedule reminders up to 7 days ahead, and view a persistent monthly dashboard.",
+    "whatItDoes": "Combines task creation, reminder scheduling, and a persistent monthly productivity dashboard.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Chart.js",
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "tags": [
+      "javascript",
+      "react",
+      "node"
+    ],
+    "features": [
+      "Task creation and tracking",
+      "Reminders scheduled up to 7 days ahead",
+      "Persistent monthly dashboard",
+      "Frontend and backend architecture with MongoDB"
+    ],
+    "aiRole": "Not specified in the supplied project files.",
+    "impact": "Failed / incomplete project — kept as an archived learning project rather than presented as a finished product.",
+    "demoUrl": null,
+    "githubUrl": "https://github.com/mohammedzaid00100/daily-routine-scheduler",
+    "screenshots": [
+      {
+        "src": "assets/images/daily-routine-notes.png",
+        "alt": "Original Daily Routine Scheduler project notes"
+      }
+    ],
+    "readmeTitle": "Daily Routine Scheduler README",
+    "readmeSections": [
+      {
+        "heading": "Overview",
+        "text": "A minimal, robust web app to add tasks, schedule reminders (up to 7 days ahead), and view a persistent monthly dashboard."
+      },
+      {
+        "heading": "Quick start",
+        "items": [
+          "Copy files into a new project folder.",
+          "Create .env from env.example and set values.",
+          "Install dependencies with npm install.",
+          "Seed sample data (optional) with npm run seed.",
+          "Start backend with npm run dev:server.",
+          "Start frontend with npm run dev:client."
+        ]
+      },
+      {
+        "heading": "Tech stack",
+        "items": [
+          "Frontend: React + Vite + Tailwind CSS + Chart.js",
+          "Backend: Node.js + Express",
+          "Database: MongoDB (Mongoose)"
+        ]
+      }
+    ],
+    "visualLabel": "DAILY / ROUTINE"
   }
 ]

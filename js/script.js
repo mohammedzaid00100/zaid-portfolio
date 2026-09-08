@@ -20,7 +20,7 @@ function prefersReducedMotion() {
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  localStorage.setItem('zaid-theme', theme);
+  try { localStorage.setItem('zaid-theme', theme); } catch (_) {}
   const icon = $('#themeToggle span');
   const button = $('#themeToggle');
   const next = theme === 'dark' ? 'light' : 'dark';
@@ -30,60 +30,29 @@ function setTheme(theme) {
 }
 
 function initTheme() {
-  const stored = localStorage.getItem('zaid-theme');
-  const fallback = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  setTheme(stored || fallback);
+  let stored;
+  try { stored = localStorage.getItem('zaid-theme'); } catch (_) {}
+  setTheme(['light', 'dark'].includes(stored) ? stored : 'dark');
   $('#themeToggle')?.addEventListener('click', () => {
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   });
 }
 
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 function cardMarkup(project) {
-  const tech = project.tech.map((item) => `<span class="tech-tag">${item}</span>`).join('');
-  const features = project.features.slice(0, 4).map((item) => `<li>${item}</li>`).join('');
-  const featuredClass = project.featured ? ' project-card-featured' : ' project-card-secondary';
-  const featuredBadge = project.featured ? '<span class="project-badge">Priority project</span>' : '<span class="project-badge project-badge-muted">Archived</span>';
-  const liveLink = project.demoUrl ? `<a class="project-live-link" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">TimeDesk Live Demo <span aria-hidden="true">↗</span></a>` : '';
-  return `
-    <article class="project-card glass${featuredClass}">
-      <div class="project-media">
-        <img src="${project.screenshots[0].src}" alt="${project.screenshots[0].alt}" loading="lazy">
-      </div>
-      <div class="project-body">
-        <div class="project-title-row">
-          <div>
-            <p class="eyebrow">${project.category}</p>
-            <h3>${project.name}</h3>
-          </div>
-          ${featuredBadge}
-        </div>
-        <p>${project.description}</p>
-        <div>
-          <p class="mini-label">Tech used</p>
-          <div class="tech-list" aria-label="Technology used">${tech}</div>
-        </div>
-        <div>
-          <p class="mini-label">What it does</p>
-          <p>${project.whatItDoes}</p>
-        </div>
-        <div>
-          <p class="mini-label">Key features</p>
-          <ul class="project-highlights">${features}</ul>
-        </div>
-        <div class="project-meta-copy">
-          <div><strong>AI role:</strong> ${project.aiRole}</div>
-          <div><strong>Impact & status:</strong> ${project.impact}</div>
-        </div>
-        <div class="project-footer">
-          <span class="status">${project.statusLabel}</span>
-          <div class="project-actions">
-            ${liveLink}
-            <button class="project-open" type="button" data-project-id="${project.id}" aria-label="View details for ${project.name}">${project.featured ? 'Open project →' : 'View details →'}</button>
-          </div>
-        </div>
-      </div>
-    </article>
-  `;
+  const number = String(state.projects.indexOf(project) + 1).padStart(2, '0');
+  const title = project.visualLabel.split(' / ').map(part => `<span>${escapeHtml(part)}</span>`).join('');
+  const demo = project.demoUrl ? `<a href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">${project.id === 'collab-deal-os' ? 'Demo only' : 'Live site'} ↗</a>` : '';
+  return `<article class="project-card">
+    <button class="project-cover cover-${escapeHtml(project.id)}" type="button" data-project-id="${escapeHtml(project.id)}" aria-label="View details for ${escapeHtml(project.name)}">
+      <span class="cover-label">PROJECT / ${number}</span><span class="cover-title" aria-hidden="true">${title}</span>
+      <span class="cover-bottom"><span>${escapeHtml(project.tech.slice(0,3).join(' / '))}</span><span class="cover-arrow" aria-hidden="true">↗</span></span>
+    </button>
+    <div class="project-body"><div class="project-title-row"><h3>${escapeHtml(project.name)}</h3><span class="status">${escapeHtml(project.statusLabel)}</span></div>
+    <p>${escapeHtml(project.description)}</p><div class="project-footer"><span class="project-category">${escapeHtml(project.category)}</span><div class="project-actions">${demo}<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div></div>
+  </article>`;
 }
 
 function matchesFilter(project, filter) {
@@ -111,10 +80,14 @@ function renderModalDots(project) {
 function updateModalScreenshot() {
   const project = state.activeProject;
   if (!project) return;
+  const media = modalImage.closest('.modal-media');
+  media.hidden = !project.screenshots.length;
+  if (!project.screenshots.length) { modalImage.removeAttribute('src'); modalDots.innerHTML = ''; return; }
   const shot = project.screenshots[state.activeScreenshot];
   modalImage.src = shot.src;
   modalImage.alt = shot.alt;
   renderModalDots(project);
+  modalDots.hidden = project.screenshots.length < 2;
 }
 
 function openProject(id) {
@@ -150,6 +123,7 @@ function openProject(id) {
     modal.setAttribute('open', '');
   }
   document.body.classList.add('modal-open');
+  $('#modalClose').focus();
 }
 
 function closeProject() {
@@ -179,7 +153,8 @@ function initProjectInteractions() {
 
   $$('.filter-chip').forEach((chip) => {
     chip.addEventListener('click', () => {
-      $$('.filter-chip').forEach((item) => item.classList.remove('active'));
+      $$('.filter-chip').forEach((item) => { item.classList.remove('active'); item.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
       chip.classList.add('active');
       state.activeFilter = chip.dataset.filter;
       renderProjects();
@@ -211,7 +186,7 @@ function initContactForm() {
     const goodName = validateField(name, nameError, 'Please enter at least 2 characters.');
     const goodEmail = validateField(email, emailError, 'Please enter a valid email address.');
     const goodMessage = validateField(message, messageError, 'Please enter at least 10 characters.');
-    if (!(goodName && goodEmail && goodMessage)) return;
+    if (!(goodName && goodEmail && goodMessage)) { form.querySelector('[aria-invalid="true"]')?.focus(); return; }
 
     const submitButton = form.querySelector('button[type="submit"]');
     const originalLabel = submitButton?.innerHTML || '';
@@ -268,10 +243,11 @@ async function loadProjects() {
     const response = await fetch('data/projects.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.projects = await response.json();
+    document.querySelector(".work-count").textContent = `01—${String(state.projects.length).padStart(2, "0")}`;
     renderProjects();
   } catch (error) {
     console.error('Project data failed to load:', error);
-    projectGrid.innerHTML = `<p class="empty-state glass">Project data could not be loaded. Preview this site through a local web server instead of opening index.html directly.</p>`;
+    projectGrid.innerHTML = `<p class="empty-state">Projects could not load. <a href="https://github.com/mohammedzaid00100">View my work on GitHub ↗</a></p>`;
   }
 }
 
@@ -285,7 +261,67 @@ function init() {
   initFooter();
   loadProjects();
   // Touch-friendly browsers do not need extra hover logic; CSS handles the interaction states.
-  if (!prefersReducedMotion()) document.body.classList.add('motion-enabled');
+  initMotion();
+}
+
+function initMotion() {
+  const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const button = $('#motionToggle');
+  const warp = $('#warpMap');
+  const word = $('.hero-word');
+  const progress = $('.scroll-progress');
+  let paused = false, frame = 0, distortion = 0, target = 0, lastTime = 0;
+  let resetTimer;
+  const enabled = () => !media.matches && !paused;
+  const updateState = () => {
+    document.body.classList.toggle('motion-enabled', enabled());
+    document.documentElement.classList.toggle('motion-paused', !enabled());
+    button.setAttribute('aria-pressed', String(!enabled()));
+    button.setAttribute('aria-label', enabled() ? 'Pause animations' : 'Enable animations');
+    button.textContent = enabled() ? 'Ⅱ' : '▷';
+    if (!enabled()) { cancelAnimationFrame(frame); frame = 0; warp.setAttribute('scale', '0'); }
+  };
+  button.addEventListener('click', () => { paused = !paused; updateState(); });
+  media.addEventListener('change', updateState);
+  updateState();
+  // Brief entry transition; never waits for an artificial loading percentage.
+  setTimeout(() => $('.intro')?.remove(), 1400);
+  function animate(time) {
+    if (!enabled()) { frame = 0; return; }
+    if (time-lastTime > 30) { distortion += (target-distortion)*.15; warp.setAttribute('scale', distortion.toFixed(2)); lastTime=time; }
+    if (Math.abs(target-distortion) > .1) frame = requestAnimationFrame(animate);
+    else { warp.setAttribute('scale', target); frame = 0; }
+  }
+  if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    word.addEventListener('pointermove', event => {
+      if (!enabled()) return;
+      const box = word.getBoundingClientRect();
+      target = 9 + 22 * Math.abs((event.clientX-box.left)/box.width - .5);
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => { target=0; if (!frame) frame=requestAnimationFrame(animate); }, 200);
+      if (!frame) frame=requestAnimationFrame(animate);
+    });
+    word.addEventListener('pointerleave', () => { target=0; if (!frame && enabled()) frame=requestAnimationFrame(animate); });
+  }
+  let scrollFrame;
+  const paintScroll = () => {
+    const range = document.documentElement.scrollHeight-innerHeight;
+    progress.style.transform = `scaleX(${range > 0 ? scrollY/range : 0})`;
+    scrollFrame=0;
+  };
+  addEventListener('scroll', () => { if (!scrollFrame) scrollFrame=requestAnimationFrame(paintScroll); }, {passive:true});
+  addEventListener('resize', paintScroll);
+  paintScroll();
+  if ('IntersectionObserver' in window && enabled()) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+    }), {threshold:.12});
+    $$('.reveal').forEach(node => {node.classList.add('reveal-pending');observer.observe(node);});
+  }
+  const rows = $$('.expertise-list details');
+  rows.forEach(row => row.addEventListener('toggle', () => {
+    if(row.open) rows.forEach(other => { if(other !== row) other.open=false; });
+  }));
 }
 
 document.addEventListener('DOMContentLoaded', init);
