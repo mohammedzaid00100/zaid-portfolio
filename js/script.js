@@ -43,16 +43,46 @@ function escapeHtml(value) {
 }
 function cardMarkup(project) {
   const number = String(state.projects.indexOf(project) + 1).padStart(2, '0');
+  const id = escapeHtml(project.id);
+  const name = escapeHtml(project.name);
   const title = project.visualLabel.split(' / ').map(part => `<span>${escapeHtml(part)}</span>`).join('');
   const demo = project.demoUrl ? `<a href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">${project.id === 'collab-deal-os' ? 'Demo only' : 'Live site'} ↗</a>` : '';
-  return `<article class="project-card">
-    <button class="project-cover cover-${escapeHtml(project.id)}" type="button" data-project-id="${escapeHtml(project.id)}" aria-label="View details for ${escapeHtml(project.name)}">
+  const features = project.features.slice(0, 3).map(feature => `<li>${escapeHtml(feature)}</li>`).join('');
+  return `<article class="project-card" data-expanded="false">
+    <button class="project-cover cover-${id}" type="button" data-project-toggle="${id}" aria-expanded="false" aria-controls="project-panel-${id}" aria-label="Toggle details for ${name}">
       <span class="cover-label">PROJECT / ${number}</span><span class="cover-title" aria-hidden="true">${title}</span>
-      <span class="cover-bottom"><span>${escapeHtml(project.tech.slice(0,3).join(' / '))}</span><span class="cover-arrow" aria-hidden="true">↗</span></span>
+      <span class="cover-bottom"><span>${escapeHtml(project.tech.slice(0,3).join(' / '))}</span><span class="cover-arrow" aria-hidden="true">+</span></span>
     </button>
-    <div class="project-body"><div class="project-title-row"><h3>${escapeHtml(project.name)}</h3><span class="status">${escapeHtml(project.statusLabel)}</span></div>
-    <p>${escapeHtml(project.description)}</p><div class="project-footer"><span class="project-category">${escapeHtml(project.category)}</span><div class="project-actions">${demo}<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div></div>
+    <div class="project-body"><div class="project-title-row"><h3 id="project-title-${id}">${name}</h3><span class="status">${escapeHtml(project.statusLabel)}</span></div>
+      <button class="project-expand-toggle" type="button" data-project-toggle="${id}" aria-expanded="false" aria-controls="project-panel-${id}"><span class="expand-label">About this project</span><span class="expand-icon" aria-hidden="true">+</span></button>
+      <div class="project-expand-panel" id="project-panel-${id}" role="region" aria-labelledby="project-title-${id}" aria-hidden="true" inert>
+        <div class="project-expand-clip"><div class="project-expand-content">
+          <p class="project-description">${escapeHtml(project.description)}</p>
+          <ul class="project-feature-list">${features}</ul>
+          <div class="project-footer"><span class="project-category">${escapeHtml(project.category)}</span><div class="project-actions">${demo}<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a><button class="project-detail-link" type="button" data-project-id="${id}">Full details ↗</button></div></div>
+        </div></div>
+      </div>
+    </div>
   </article>`;
+}
+
+function setProjectExpanded(card, expanded) {
+  const panel = card.querySelector('.project-expand-panel');
+  if (!expanded && panel.contains(document.activeElement)) card.querySelector('[data-project-toggle]').focus();
+  card.dataset.expanded = String(expanded);
+  card.querySelectorAll('[data-project-toggle]').forEach(button => button.setAttribute('aria-expanded', String(expanded)));
+  card.querySelector('.expand-label').textContent = expanded ? 'Close overview' : 'About this project';
+  panel.inert = !expanded;
+  panel.setAttribute('aria-hidden', String(!expanded));
+}
+
+function toggleProjectCard(card) {
+  const expanded = card.dataset.expanded !== 'true';
+  // One open overview keeps a long catalogue easy to scan.
+  if (expanded) projectGrid.querySelectorAll('.project-card[data-expanded="true"]').forEach(other => {
+    if (other !== card) setProjectExpanded(other, false);
+  });
+  setProjectExpanded(card, expanded);
 }
 
 function matchesFilter(project, filter) {
@@ -135,6 +165,8 @@ function closeProject() {
 
 function initProjectInteractions() {
   projectGrid.addEventListener('click', (event) => {
+    const toggle = event.target.closest('[data-project-toggle]');
+    if (toggle) { toggleProjectCard(toggle.closest('.project-card')); return; }
     const button = event.target.closest('[data-project-id]');
     if (button) openProject(button.dataset.projectId);
   });

@@ -56,3 +56,7 @@ The existing Vercel GitHub integration publishes the static repository from `mai
 ### Ambient section motion
 
 Toolkit badges follow staggered floating paths. About uses a floating name and slow accent changes; Projects uses a moving heading, rotating cover geometry, and subtle type movement. Contact headings share the accent animation. Interactive targets and paragraph text remain stationary. Reduced-motion visitors retain slow badge/heading colour changes while spatial movement is disabled.
+
+### Project accordions
+
+Click or tap a project cover or “About this project” to expand its overview in place. Native buttons support Enter and Space. One overview opens at a time; the height animates in both directions without a fixed maximum. Collapsed content is inert and hidden from assistive technology. Source/demo links and the full-details dialog remain available in each expanded overview. Reduced-motion settings remove the height transition.

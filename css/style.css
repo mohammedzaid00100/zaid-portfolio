@@ -90,3 +90,22 @@ html[data-theme=light]{--bg:#f0f2f8;--panel:#e3e7f0;--text:#151a26;--muted:#525b
  .name-panel strong,.name-panel:after,.section-label,.work-heading h2,.project-cover:before,.project-cover:after,.project-cover .cover-title span{animation:none!important}
  .name-panel:after,.project-cover:after{display:none}
 }
+
+/* In-place project accordion: intrinsic height, reversible transitions, no timers. */
+.project-grid{align-items:start}
+.project-expand-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 0;color:var(--muted);text-align:left;font-size:14px}
+.project-expand-toggle:hover{color:var(--text)}
+.expand-icon{font-size:24px;line-height:1;transition:transform .4s ease;color:var(--accent)}
+.project-expand-panel{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.22,.7,.2,1),opacity .3s ease,visibility 0s .55s}
+.project-expand-clip{min-height:0;overflow:hidden}
+.project-expand-content{padding:18px 0 5px}
+.project-card[data-expanded="true"] .project-expand-panel{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .55s cubic-bezier(.22,.7,.2,1),opacity .35s .1s ease,visibility 0s}
+.project-card[data-expanded="true"] .expand-icon,.project-card[data-expanded="true"] .cover-arrow{transform:rotate(45deg)}
+.project-card[data-expanded="false"] .project-cover:hover .cover-arrow{transform:none}
+.project-description{margin:0 0 16px;color:var(--muted)}
+.project-feature-list{padding-left:20px;margin:0 0 22px;color:var(--muted);font-size:14px}
+.project-feature-list li{margin:6px 0}
+.project-detail-link{border:0;background:none;padding:0;color:inherit;font-size:14px}
+.project-detail-link:hover{color:var(--accent)}
+.project-expand-content .project-footer{align-items:flex-start;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.project-expand-panel,.project-card[data-expanded="true"] .project-expand-panel,.expand-icon{transition:none}}
