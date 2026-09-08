@@ -4,7 +4,7 @@
     "name": "Web to EXE",
     "category": "Product website",
     "featured": true,
-    "statusLabel": "Website built",
+    "statusLabel": "Live & deployed",
     "description": "A product and download website for a Windows utility that packages supported web-project ZIPs into desktop applications locally.",
     "whatItDoes": "A product and download website for a Windows utility that packages supported web-project ZIPs into desktop applications locally.",
     "tech": [
@@ -23,7 +23,7 @@
     ],
     "aiRole": "AI-assisted development and iteration.",
     "impact": "This repository contains the product website, not the desktop packaging engine. Web to EXE V1 focuses on basic local Windows packaging.",
-    "demoUrl": null,
+    "demoUrl": "https://webtoexe.netlify.app/",
     "githubUrl": "https://github.com/mohammedzaid00100/Web-to-EXE-website",
     "screenshots": [],
     "visualLabel": "WEB / TO EXE",
