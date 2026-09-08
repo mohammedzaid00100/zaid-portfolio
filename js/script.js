@@ -278,25 +278,23 @@ function observeReveals(root = document) {
 
 function initMotion() {
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const button = $('#motionToggle');
   const warp = $('#warpMap');
   const word = $('.hero-word');
   const progress = $('.scroll-progress');
-  let paused = null, frame = 0, distortion = 0, target = 0, lastTime = 0;
+  let frame = 0, distortion = 0, target = 0, lastTime = 0;
   let resetTimer;
-  const enabled = () => paused === null ? !media.matches : !paused;
+  // Ambient CSS animation starts with the document, without a playback control.
+  // Reduced-motion visitors get a colour-only version, with no drifting or warping.
+  const enabled = () => !media.matches;
   const updateState = () => {
-    document.body.classList.toggle('motion-enabled', enabled());
-    document.documentElement.classList.toggle('motion-paused', !enabled());
-    document.documentElement.classList.toggle('motion-override', paused === false);
-    if (!enabled()) $$('.reveal-pending').forEach(node => node.classList.add('visible'));
-    button.setAttribute('aria-pressed', String(!enabled()));
-    button.setAttribute('aria-label', enabled() ? 'Pause animations' : 'Enable animations');
-    button.textContent = enabled() ? 'Ⅱ' : '▷';
-    if (!enabled()) { cancelAnimationFrame(frame); frame = 0; warp.setAttribute('scale', '0'); }
+    if (media.matches) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      warp.setAttribute('scale', '0');
+      $$('.reveal-pending').forEach(node => node.classList.add('visible'));
+    }
   };
-  button.addEventListener('click', () => { paused = enabled(); updateState(); });
-  media.addEventListener('change', () => { paused = null; updateState(); });
+  media.addEventListener('change', updateState);
   updateState();
   function animate(time) {
     if (!enabled()) { frame = 0; return; }

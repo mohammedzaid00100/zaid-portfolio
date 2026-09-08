@@ -38,7 +38,7 @@ The `tags` values support `javascript`, `react`, `node`, and `pwa`. Keep project
 - Lightweight pointer-driven SVG displacement on the desktop hero; no distortion on mobile.
 - Native disclosure elements for expertise and a native dialog for project details.
 - Project filtering, screenshot navigation where applicable, light/dark theme switching, mobile menu, keyboard support, and reduced-motion support.
-- An explicit animation toggle, staggered letter entrances, a gentle ongoing type wave, and scroll reveals for project cards and sections. No loading overlay or scroll hijacking. System reduced-motion preferences are respected by default; visitors can explicitly enable motion with the toggle.
+- Automatic staggered letter entrances, a continuous cobalt colour wave, floating background light, and scroll reveals. No playback control, loading overlay, or scroll hijacking. Animation starts with the document before JavaScript interaction. Reduced-motion visitors get slow colour changes without drifting, warping, or entrance movement.
 - The existing resume and Formspree endpoint are retained. The form validates input and shows success only after a successful response. Use a real authorised submission to verify delivery; automated QA must not send messages.
 
 ## Files
