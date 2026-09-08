@@ -52,3 +52,7 @@ The `tags` values support `javascript`, `react`, `node`, and `pwa`. Keep project
 ## Deployment
 
 The existing Vercel GitHub integration publishes the static repository from `main`. No additional hosting provider or build configuration is required. The redesign preserves the original asset paths and repository history.
+
+### Ambient section motion
+
+Toolkit badges follow staggered floating paths. About uses a floating name and slow accent changes; Projects uses a moving heading, rotating cover geometry, and subtle type movement. Contact headings share the accent animation. Interactive targets and paragraph text remain stationary. Reduced-motion visitors retain slow badge/heading colour changes while spatial movement is disabled.
