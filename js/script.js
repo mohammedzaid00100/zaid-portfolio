@@ -69,6 +69,7 @@ function renderProjects() {
   const visible = state.projects.filter((project) => matchesFilter(project, state.activeFilter));
   projectGrid.innerHTML = visible.map(cardMarkup).join('');
   projectsEmpty.hidden = visible.length !== 0;
+  observeReveals(projectGrid);
 }
 
 function renderModalDots(project) {
@@ -260,8 +261,19 @@ function init() {
   initContactForm();
   initFooter();
   loadProjects();
-  // Touch-friendly browsers do not need extra hover logic; CSS handles the interaction states.
   initMotion();
+}
+
+let revealObserver;
+function observeReveals(root = document) {
+  if (!revealObserver) return;
+  const selectors = '.reveal, .section-label, .name-panel, .about-columns, .expertise-list details, .work-heading, .project-card, .contact-grid > div, .contact-form';
+  root.querySelectorAll(selectors).forEach(node => {
+    if (node.dataset.revealObserved) return;
+    node.dataset.revealObserved = 'true';
+    node.classList.add('reveal', 'reveal-pending');
+    revealObserver.observe(node);
+  });
 }
 
 function initMotion() {
@@ -270,22 +282,22 @@ function initMotion() {
   const warp = $('#warpMap');
   const word = $('.hero-word');
   const progress = $('.scroll-progress');
-  let paused = false, frame = 0, distortion = 0, target = 0, lastTime = 0;
+  let paused = null, frame = 0, distortion = 0, target = 0, lastTime = 0;
   let resetTimer;
-  const enabled = () => !media.matches && !paused;
+  const enabled = () => paused === null ? !media.matches : !paused;
   const updateState = () => {
     document.body.classList.toggle('motion-enabled', enabled());
     document.documentElement.classList.toggle('motion-paused', !enabled());
+    document.documentElement.classList.toggle('motion-override', paused === false);
+    if (!enabled()) $$('.reveal-pending').forEach(node => node.classList.add('visible'));
     button.setAttribute('aria-pressed', String(!enabled()));
     button.setAttribute('aria-label', enabled() ? 'Pause animations' : 'Enable animations');
     button.textContent = enabled() ? 'Ⅱ' : '▷';
     if (!enabled()) { cancelAnimationFrame(frame); frame = 0; warp.setAttribute('scale', '0'); }
   };
-  button.addEventListener('click', () => { paused = !paused; updateState(); });
-  media.addEventListener('change', updateState);
+  button.addEventListener('click', () => { paused = enabled(); updateState(); });
+  media.addEventListener('change', () => { paused = null; updateState(); });
   updateState();
-  // Brief entry transition; never waits for an artificial loading percentage.
-  setTimeout(() => $('.intro')?.remove(), 1400);
   function animate(time) {
     if (!enabled()) { frame = 0; return; }
     if (time-lastTime > 30) { distortion += (target-distortion)*.15; warp.setAttribute('scale', distortion.toFixed(2)); lastTime=time; }
@@ -312,11 +324,14 @@ function initMotion() {
   addEventListener('scroll', () => { if (!scrollFrame) scrollFrame=requestAnimationFrame(paintScroll); }, {passive:true});
   addEventListener('resize', paintScroll);
   paintScroll();
-  if ('IntersectionObserver' in window && enabled()) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-    }), {threshold:.12});
-    $$('.reveal').forEach(node => {node.classList.add('reveal-pending');observer.observe(node);});
+  if ('IntersectionObserver' in window) {
+    revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    }), {threshold: .08});
+    observeReveals();
   }
   const rows = $$('.expertise-list details');
   rows.forEach(row => row.addEventListener('toggle', () => {
