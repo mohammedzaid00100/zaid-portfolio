@@ -109,3 +109,10 @@ html[data-theme=light]{--bg:#f0f2f8;--panel:#e3e7f0;--text:#151a26;--muted:#525b
 .project-detail-link:hover{color:var(--accent)}
 .project-expand-content .project-footer{align-items:flex-start;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.project-expand-panel,.project-card[data-expanded="true"] .project-expand-panel,.expand-icon{transition:none}}
+
+/* Project-specific covers and download actions. */
+.cover-sofiafx-pro{background:#152b27;color:#b7e4c7}
+.cover-aura-music{background:#30205e;color:#f0dcff}
+.cover-companion-dost{background:#dce3f5;color:#172243}
+.cover-companion-dost:before{border-color:#17224333}
+.project-actions{align-items:center}

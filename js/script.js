@@ -47,6 +47,8 @@ function cardMarkup(project) {
   const name = escapeHtml(project.name);
   const title = project.visualLabel.split(' / ').map(part => `<span>${escapeHtml(part)}</span>`).join('');
   const demo = project.demoUrl ? `<a href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">${project.id === 'collab-deal-os' ? 'Demo only' : 'Live site'} ↗</a>` : '';
+  const github = project.githubUrl ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a>` : '';
+  const download = project.downloadUrl ? `<a href="${escapeHtml(project.downloadUrl)}"${project.downloadUrl.startsWith('assets/') ? ' download' : ' target="_blank" rel="noopener noreferrer"'}>${escapeHtml(project.downloadLabel || 'Download')} ↓</a>` : '';
   const features = project.features.slice(0, 3).map(feature => `<li>${escapeHtml(feature)}</li>`).join('');
   return `<article class="project-card" data-expanded="false">
     <button class="project-cover cover-${id}" type="button" data-project-toggle="${id}" aria-expanded="false" aria-controls="project-panel-${id}" aria-label="Toggle details for ${name}">
@@ -59,7 +61,7 @@ function cardMarkup(project) {
         <div class="project-expand-clip"><div class="project-expand-content">
           <p class="project-description">${escapeHtml(project.description)}</p>
           <ul class="project-feature-list">${features}</ul>
-          <div class="project-footer"><span class="project-category">${escapeHtml(project.category)}</span><div class="project-actions">${demo}<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a><button class="project-detail-link" type="button" data-project-id="${id}">Full details ↗</button></div></div>
+          <div class="project-footer"><span class="project-category">${escapeHtml(project.category)}</span><div class="project-actions">${demo}${github}${download}<button class="project-detail-link" type="button" data-project-id="${id}">Full details ↗</button></div></div>
         </div></div>
       </div>
     </div>
@@ -92,6 +94,8 @@ function matchesFilter(project, filter) {
   if (filter === 'react') return tech.includes('react');
   if (filter === 'node') return tech.includes('node.js');
   if (filter === 'pwa') return project.tags.includes('pwa');
+  if (filter === 'android') return project.tags.includes('android') || tech.includes('android');
+  if (filter === 'python') return project.tags.includes('python') || tech.includes('python');
   return true;
 }
 
@@ -142,11 +146,24 @@ function openProject(id) {
   }).join('');
   const demo = $('#modalDemo');
   const github = $('#modalGithub');
+  const download = $('#modalDownload');
   demo.href = project.demoUrl || '#';
   demo.innerHTML = project.id === 'timedesk' ? 'TimeDesk Live Demo <span aria-hidden="true">↗</span>' : 'Live demo <span aria-hidden="true">↗</span>';
   github.href = project.githubUrl || '#';
+  download.href = project.downloadUrl || '#';
+  download.innerHTML = `${escapeHtml(project.downloadLabel || 'Download')} <span aria-hidden="true">↓</span>`;
   demo.style.display = project.demoUrl ? 'inline-flex' : 'none';
   github.style.display = project.githubUrl ? 'inline-flex' : 'none';
+  download.style.display = project.downloadUrl ? 'inline-flex' : 'none';
+  if (project.downloadUrl?.startsWith('assets/')) {
+    download.setAttribute('download', '');
+    download.removeAttribute('target');
+    download.removeAttribute('rel');
+  } else {
+    download.removeAttribute('download');
+    download.setAttribute('target', '_blank');
+    download.setAttribute('rel', 'noopener noreferrer');
+  }
   updateModalScreenshot();
   if (typeof modal.showModal === 'function') {
     modal.showModal();
@@ -273,7 +290,7 @@ function initNavigation() {
 
 async function loadProjects() {
   try {
-    const response = await fetch('data/projects.json');
+    const response = await fetch('data/projects.json?v=projects-9');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.projects = await response.json();
     document.querySelector(".work-count").textContent = `01—${String(state.projects.length).padStart(2, "0")}`;

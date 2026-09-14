@@ -25,6 +25,8 @@
     "impact": "This repository contains the product website, not the desktop packaging engine. Web to EXE V1 focuses on basic local Windows packaging.",
     "demoUrl": "https://webtoexe.netlify.app/",
     "githubUrl": "https://github.com/mohammedzaid00100/Web-to-EXE-website",
+    "downloadUrl": "https://github.com/mohammedzaid00100/Web-to-EXE-website/releases/download/v1/Web-to-EXE-0.1.8-Portable.exe",
+    "downloadLabel": "Download application",
     "screenshots": [],
     "visualLabel": "WEB / TO EXE",
     "readmeTitle": "Project notes",
@@ -36,6 +38,141 @@
       {
         "heading": "Source",
         "text": "https://github.com/mohammedzaid00100/Web-to-EXE-website"
+      }
+    ]
+  },
+  {
+    "id": "sofiafx-pro",
+    "name": "SofiaFX Pro",
+    "category": "Trading website",
+    "featured": true,
+    "statusLabel": "Live & deployed",
+    "description": "A responsive trading-focused website built around Smart Money Concepts, strategy presentation, market visuals, and professional fintech branding.",
+    "whatItDoes": "Presents Smart Money Concepts, trading strategies, performance visuals, and credibility-focused content through a polished fintech interface.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "tags": [
+      "javascript"
+    ],
+    "features": [
+      "Smart Money Concepts presentation",
+      "Trading strategy sections",
+      "Performance and dashboard-style visuals",
+      "Reviews and credibility-focused sections",
+      "Responsive fintech-style interface",
+      "Animated market-themed design"
+    ],
+    "aiRole": "AI-assisted development, design iteration, and content structuring.",
+    "impact": "SofiaFX Pro was built as a polished trading-brand website focused on presentation, credibility, and responsive front-end design.",
+    "demoUrl": "https://sofiafxpro.vercel.app/",
+    "githubUrl": null,
+    "screenshots": [],
+    "visualLabel": "SOFIAFX / PRO",
+    "readmeTitle": "SofiaFX Pro details",
+    "readmeSections": [
+      {
+        "heading": "Project focus",
+        "text": "A responsive fintech website combining Smart Money Concepts, trading strategy presentation, market-themed visuals, and credibility-focused content."
+      },
+      {
+        "heading": "Availability",
+        "text": "The live website is public. The source repository is private."
+      }
+    ]
+  },
+  {
+    "id": "aura-music",
+    "name": "Aura Music",
+    "category": "Android application",
+    "featured": true,
+    "statusLabel": "APK available",
+    "description": "An Android music application focused on offline listening, downloaded songs, and personal playlist management without unnecessary premium restrictions.",
+    "whatItDoes": "Provides an offline-first personal music experience with downloaded-song organization and playlist management.",
+    "tech": [
+      "Android",
+      "Java/Kotlin",
+      "Local Storage"
+    ],
+    "tags": [
+      "android"
+    ],
+    "features": [
+      "Offline music playback",
+      "Downloaded songs library",
+      "Playlist creation and management",
+      "Add songs to playlists from the three-dot menu",
+      "Rename and organize playlists",
+      "Custom app branding and icon",
+      "Android APK packaging"
+    ],
+    "aiRole": "AI-assisted development, debugging, feature planning, and iteration.",
+    "impact": "Aura Music evolved from a basic offline music app into a fuller personal listening experience. It also expanded my experience with Android APK builds, local storage, and crash debugging.",
+    "demoUrl": null,
+    "githubUrl": null,
+    "downloadUrl": "assets/downloads/Aura-Music-1.1.3.apk",
+    "downloadLabel": "Download APK",
+    "screenshots": [],
+    "visualLabel": "AURA / MUSIC",
+    "readmeTitle": "Aura Music details",
+    "readmeSections": [
+      {
+        "heading": "Overview",
+        "text": "An Android music application centred on offline playback, downloaded songs, and personal playlists."
+      },
+      {
+        "heading": "Download",
+        "text": "Version 1.1.3 is available as an Android APK from this portfolio."
+      },
+      {
+        "heading": "Source",
+        "text": "The source repository is private."
+      }
+    ]
+  },
+  {
+    "id": "companion-dost",
+    "name": "Companion / DOST",
+    "category": "AI companion prototype",
+    "featured": true,
+    "statusLabel": "Private-source prototype",
+    "description": "A personal AI companion experiment designed around different conversation modes such as friend, mentor, and debate interactions.",
+    "whatItDoes": "Offers distinct AI conversation modes and quick prompts for topics including life, career, money, motivation, and everyday problems.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
+      "OpenAI API"
+    ],
+    "tags": [
+      "javascript",
+      "python"
+    ],
+    "features": [
+      "Multiple AI conversation modes",
+      "Personal companion-style interface",
+      "Quick prompts for life, career, money, motivation, and problems",
+      "Local Python server for safer API handling",
+      "Local-first AI interaction workflow"
+    ],
+    "aiRole": "AI is the core interaction layer of the project, while development and iteration were also AI-assisted.",
+    "impact": "Companion / DOST was my first serious project and introduced me to AI API integration, frontend/backend separation, and local server architecture. The source code remains private because of unresolved security, stability, and configuration issues.",
+    "demoUrl": null,
+    "githubUrl": null,
+    "screenshots": [],
+    "visualLabel": "COMPANION / DOST",
+    "readmeTitle": "Companion / DOST details",
+    "readmeSections": [
+      {
+        "heading": "Why it matters",
+        "text": "This was my first serious project and my introduction to AI API integration, frontend/backend separation, and local server architecture."
+      },
+      {
+        "heading": "Source availability",
+        "text": "The source code remains private because of unresolved security, stability, and configuration issues."
       }
     ]
   },
