@@ -50,8 +50,8 @@
     ],
     "aiRole": "AI-assisted full-stack development.",
     "impact": "Collab Deal OS became one of my larger full-stack projects because it moved beyond a static interface into a functioning multi-role application involving authentication, relational data, realtime communication, database authorization, marketplace interactions, responsive design, production migrations, testing, and cloud deployment. It represents my progression from building primarily frontend experiences toward understanding how a production-style application connects UI, authentication, backend logic, PostgreSQL, realtime systems, authorization, testing, and deployment.",
-    "demoUrl": "https://collab-deal-os.onrender.com/",
-    "githubUrl": "https://github.com/mohammedzaid00100/collab-deal-os",
+    "demoUrl": "https://collab-deal-os.mohammedzaid00100.workers.dev/",
+    "githubUrl": "https://github.com/mohammedzaid00100/Collab-Deal-OS-v1.1.1",
     "screenshots": [],
     "visualLabel": "COLLAB / DEAL OS",
     "readmeTitle": "Collab Deal OS — Full case study",
@@ -164,7 +164,7 @@
       },
       {
         "heading": "Source",
-        "text": "https://github.com/mohammedzaid00100/collab-deal-os"
+        "text": "https://github.com/mohammedzaid00100/Collab-Deal-OS-v1.1.1"
       }
     ]
   },
