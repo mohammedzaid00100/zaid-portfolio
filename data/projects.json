@@ -1,5 +1,102 @@
 [
   {
+    "id": "collab-deal-os",
+    "name": "Collab Deal OS",
+    "category": "Full-stack marketplace",
+    "featured": true,
+    "pinned": true,
+    "version": "v1.2.0",
+    "statusLabel": "Active · Live · v1.2.0",
+    "description": "A full-stack creator–brand collaboration marketplace where brands can publish deals, creators can discover and show interest in opportunities, and both sides can connect through private realtime messaging.",
+    "whatItDoes": "Connects brands and creators through deal publishing, opportunity discovery, interest tracking, role-specific workspaces, and private realtime communication.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Supabase Realtime",
+      "Google OAuth",
+      "Cloudflare Workers",
+      "Vitest"
+    ],
+    "tags": [
+      "react",
+      "node"
+    ],
+    "features": [
+      "Separate Creator and Brand workspaces",
+      "Deal publishing and opportunity discovery",
+      "Creator comments and interest tracking",
+      "Brand ↔ Creator realtime messaging",
+      "Creator ↔ Creator messaging through deal comments",
+      "Replies and message deletion",
+      "Google OAuth authentication",
+      "Role-based access with Supabase RLS",
+      "Mobile-friendly responsive UI",
+      "Cloudflare deployment"
+    ],
+    "aiRole": "AI-assisted development, architecture, debugging, testing, and product iteration.",
+    "impact": "Collab Deal OS helped me move beyond frontend projects into building a real multi-role full-stack application with authentication, realtime communication, database security, and production deployment.",
+    "demoUrl": "https://collab-deal-os.onrender.com/",
+    "githubUrl": "https://github.com/mohammedzaid00100/collab-deal-os",
+    "screenshots": [],
+    "visualLabel": "COLLAB / DEAL OS",
+    "readmeTitle": "Collab Deal OS v1.2.0",
+    "readmeSections": [
+      {
+        "heading": "Overview",
+        "text": "A full-stack creator–brand collaboration marketplace. Brands publish deals, creators discover opportunities and show interest, and both sides connect through private realtime messaging."
+      },
+      {
+        "heading": "Creator and brand workflows",
+        "items": [
+          "Separate Creator and Brand workspaces",
+          "Deal publishing and opportunity discovery",
+          "Creator comments and interest tracking",
+          "Private Brand ↔ Creator messaging",
+          "Creator ↔ Creator messaging through deal comments",
+          "Replies and message deletion"
+        ]
+      },
+      {
+        "heading": "Authentication and security",
+        "items": [
+          "Google OAuth authentication",
+          "Role-based access control",
+          "Supabase Row Level Security policies",
+          "PostgreSQL-backed data model"
+        ]
+      },
+      {
+        "heading": "Technology",
+        "items": [
+          "Next.js and React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Supabase and PostgreSQL",
+          "Supabase Realtime",
+          "Google OAuth",
+          "Cloudflare Workers",
+          "Vitest"
+        ]
+      },
+      {
+        "heading": "Impact",
+        "text": "This project marked the move from frontend-only work into a real multi-role full-stack application with authentication, realtime communication, database security, testing, and production deployment."
+      },
+      {
+        "heading": "Current status",
+        "text": "Active and live. Current version: v1.2.0."
+      },
+      {
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/collab-deal-os"
+      }
+    ]
+  },
+  {
     "id": "web-to-exe",
     "name": "Web to EXE",
     "category": "Product website",
@@ -270,48 +367,6 @@
       {
         "heading": "Source",
         "text": "https://github.com/mohammedzaid00100/Nalanda-Engish-Medium-Higher-Secondary-School"
-      }
-    ]
-  },
-  {
-    "id": "collab-deal-os",
-    "name": "Collab Deal OS",
-    "category": "Product prototype",
-    "featured": true,
-    "statusLabel": "Discontinued · demo only",
-    "description": "A creator–brand collaboration prototype with onboarding, campaign discovery, structured offers, and a deal advisor.",
-    "whatItDoes": "A creator–brand collaboration prototype with onboarding, campaign discovery, structured offers, and a deal advisor.",
-    "tech": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Node.js"
-    ],
-    "tags": [
-      "javascript",
-      "node"
-    ],
-    "features": [
-      "Creator and brand dashboards",
-      "Campaign and opportunity discovery",
-      "Offer review and revision flows",
-      "Rule-based deal pricing estimates"
-    ],
-    "aiRole": "AI-assisted development and iteration.",
-    "impact": "Discontinued. Retained as a demonstration of the product concept; authentication, production integrations, persistence, and stability remain incomplete.",
-    "demoUrl": "https://collab-deal-os.onrender.com/",
-    "githubUrl": "https://github.com/mohammedzaid00100/collab-deal-os",
-    "screenshots": [],
-    "visualLabel": "COLLAB / DEAL OS",
-    "readmeTitle": "Project notes",
-    "readmeSections": [
-      {
-        "heading": "Repository scope",
-        "text": "Discontinued. Retained as a demonstration of the product concept; authentication, production integrations, persistence, and stability remain incomplete."
-      },
-      {
-        "heading": "Source",
-        "text": "https://github.com/mohammedzaid00100/collab-deal-os"
       }
     ]
   },
