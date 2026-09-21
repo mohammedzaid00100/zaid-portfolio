@@ -116,3 +116,11 @@ html[data-theme=light]{--bg:#f0f2f8;--panel:#e3e7f0;--text:#151a26;--muted:#525b
 .cover-companion-dost{background:#dce3f5;color:#172243}
 .cover-companion-dost:before{border-color:#17224333}
 .project-actions{align-items:center}
+
+
+/* Pinned project marker. */
+.project-pin{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid currentColor;border-radius:999px;background:#0f0a1dcc;backdrop-filter:blur(8px);box-shadow:0 8px 24px #0003;color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;line-height:1}
+.project-card[data-pinned="true"] .cover-label{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+.project-card[data-pinned="true"] .project-cover{box-shadow:0 0 0 1px #a98cff55,0 24px 55px #301e5238}
+.project-card[data-pinned="true"] .project-title-row h3:after{content:"PINNED";display:inline-block;margin-left:10px;padding:3px 7px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-size:9px;font-weight:700;letter-spacing:.12em;vertical-align:middle}
+@media(max-width:700px){.project-pin{padding:6px 8px;font-size:9px}.project-card[data-pinned="true"] .cover-label{gap:8px}.project-card[data-pinned="true"] .project-title-row h3:after{display:none}}
