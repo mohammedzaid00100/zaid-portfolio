@@ -2,13 +2,13 @@
   {
     "id": "collab-deal-os",
     "name": "Collab Deal OS",
-    "category": "Full-stack marketplace",
+    "category": "Creator–brand marketplace",
     "featured": true,
     "pinned": true,
     "version": "v1.2.0",
     "statusLabel": "Active · Live · v1.2.0",
-    "description": "A full-stack creator–brand collaboration marketplace where brands can publish deals, creators can discover and show interest in opportunities, and both sides can connect through private realtime messaging.",
-    "whatItDoes": "Connects brands and creators through deal publishing, opportunity discovery, interest tracking, role-specific workspaces, and private realtime communication.",
+    "description": "A full-stack creator–brand collaboration marketplace and deal-management platform that replaces scattered DMs, emails, spreadsheets, and social-media comments with structured discovery, private communication, offers, and role-specific workflows.",
+    "whatItDoes": "Brings brands and creators into one structured marketplace where brands publish opportunities, creators discover and express interest in deals, and both sides move from discovery to private realtime conversations and offers.",
     "tech": [
       "Next.js",
       "React",
@@ -16,79 +16,151 @@
       "Tailwind CSS",
       "Supabase",
       "PostgreSQL",
-      "Supabase Realtime",
+      "Supabase Auth",
       "Google OAuth",
+      "Supabase Realtime",
+      "Zod",
+      "React Hook Form",
+      "Lucide React",
+      "Vitest",
       "Cloudflare Workers",
-      "Vitest"
+      "Vite",
+      "Vinext",
+      "Wrangler",
+      "Capacitor"
     ],
     "tags": [
       "react",
       "node"
     ],
     "features": [
-      "Separate Creator and Brand workspaces",
-      "Deal publishing and opportunity discovery",
-      "Creator comments and interest tracking",
-      "Brand ↔ Creator realtime messaging",
-      "Creator ↔ Creator messaging through deal comments",
-      "Replies and message deletion",
-      "Google OAuth authentication",
-      "Role-based access with Supabase RLS",
-      "Mobile-friendly responsive UI",
-      "Cloudflare deployment"
+      "Separate role-based Creator and Brand workspaces",
+      "Deal publishing, discovery, comments, and creator interest tracking",
+      "Private Brand ↔ Creator realtime messaging",
+      "Private Creator ↔ Creator messaging through deal comments",
+      "Message replies with quoted context and sender-only deletion",
+      "Optimistic sending, duplicate handling, and realtime synchronization",
+      "Creator discovery, matches, offers, campaigns, and analytics",
+      "Google OAuth with Supabase Auth",
+      "Database-level authorization with Supabase Row Level Security",
+      "Validated conversation creation through PostgreSQL functions/RPCs",
+      "Responsive mobile messaging and touch-accessible actions",
+      "Soft neo-brutalist interface with animated Quick Actions control",
+      "Vitest coverage and Cloudflare Workers deployment"
     ],
-    "aiRole": "AI-assisted development, architecture, debugging, testing, and product iteration.",
-    "impact": "Collab Deal OS helped me move beyond frontend projects into building a real multi-role full-stack application with authentication, realtime communication, database security, and production deployment.",
+    "aiRole": "AI-assisted full-stack development.",
+    "impact": "Collab Deal OS became one of my larger full-stack projects because it moved beyond a static interface into a functioning multi-role application involving authentication, relational data, realtime communication, database authorization, marketplace interactions, responsive design, production migrations, testing, and cloud deployment. It represents my progression from building primarily frontend experiences toward understanding how a production-style application connects UI, authentication, backend logic, PostgreSQL, realtime systems, authorization, testing, and deployment.",
     "demoUrl": "https://collab-deal-os.onrender.com/",
     "githubUrl": "https://github.com/mohammedzaid00100/collab-deal-os",
     "screenshots": [],
     "visualLabel": "COLLAB / DEAL OS",
-    "readmeTitle": "Collab Deal OS v1.2.0",
+    "readmeTitle": "Collab Deal OS — Full case study",
     "readmeSections": [
       {
-        "heading": "Overview",
-        "text": "A full-stack creator–brand collaboration marketplace. Brands publish deals, creators discover opportunities and show interest, and both sides connect through private realtime messaging."
+        "heading": "Creator–Brand Collaboration Marketplace & Deal Management Platform",
+        "text": "Collab Deal OS is a full-stack collaboration platform designed to bring brands and creators into one structured marketplace. Instead of handling collaborations through scattered DMs, emails, spreadsheets, and social-media comments, the platform provides a dedicated environment where brands can publish opportunities, creators can discover and express interest in deals, and both sides can move from discovery to private conversation and offers."
       },
       {
-        "heading": "Creator and brand workflows",
+        "heading": "How the project evolved",
+        "text": "The project started as an experiment around managing collaboration deals, but evolved into a broader creator–brand marketplace and communication system with role-based workspaces, realtime messaging, deal discovery, creator discovery, offers, and creator-to-creator networking."
+      },
+      {
+        "heading": "Core marketplace flow",
+        "text": "Brand publishes a deal → Creator discovers it → Creator comments or shows interest → Brand reviews interested creators → Private conversation begins → Collaboration terms can be discussed through the platform. Accounts operate strictly as either a Creator or Brand, giving each role its own navigation, permissions, dashboard, and workflow."
+      },
+      {
+        "heading": "Creator-to-Creator Connect",
+        "text": "Creators can network through marketplace discussions. A creator can start a private conversation with another creator directly from that creator's comment on a published deal. The system blocks self-messaging and reuses an existing conversation when the same pair reconnects through the same deal, preventing duplicate chats. These conversations remain private to the participating creators."
+      },
+      {
+        "heading": "Realtime messaging system",
+        "text": "Collab Deal OS supports Brand ↔ Creator and Creator ↔ Creator conversations with realtime delivery through Supabase Realtime, plus client-side synchronization designed to keep conversations responsive and reliable.",
         "items": [
-          "Separate Creator and Brand workspaces",
-          "Deal publishing and opportunity discovery",
-          "Creator comments and interest tracking",
-          "Private Brand ↔ Creator messaging",
-          "Creator ↔ Creator messaging through deal comments",
-          "Replies and message deletion"
+          "Message replies with quoted context",
+          "Sender-only message deletion",
+          "Realtime conversation updates",
+          "Optimistic message sending",
+          "Duplicate-message handling",
+          "Mobile-friendly message actions",
+          "Long URL and text wrapping",
+          "Responsive conversation layouts"
         ]
       },
       {
-        "heading": "Authentication and security",
+        "heading": "Brand workspace",
+        "text": "Brands receive a dedicated workspace for running collaboration campaigns without exposing brand-management functionality to creator accounts.",
         "items": [
-          "Google OAuth authentication",
-          "Role-based access control",
-          "Supabase Row Level Security policies",
-          "PostgreSQL-backed data model"
+          "Dashboard",
+          "Connect",
+          "Messages",
+          "Campaigns",
+          "Creator Discovery",
+          "Matches",
+          "Offers",
+          "Analytics",
+          "Settings"
         ]
       },
       {
-        "heading": "Technology",
+        "heading": "Creator workspace",
+        "text": "Creators receive a separate experience for maintaining their profile, discovering opportunities, commenting to show interest, communicating privately with brands, connecting with creators through deal discussions, and managing offers.",
         "items": [
-          "Next.js and React",
-          "TypeScript",
-          "Tailwind CSS",
-          "Supabase and PostgreSQL",
-          "Supabase Realtime",
-          "Google OAuth",
-          "Cloudflare Workers",
-          "Vitest"
+          "Dashboard",
+          "Connect",
+          "Messages",
+          "Opportunities",
+          "Offers",
+          "Analytics",
+          "Settings"
         ]
       },
       {
-        "heading": "Impact",
-        "text": "This project marked the move from frontend-only work into a real multi-role full-stack application with authentication, realtime communication, database security, testing, and production deployment."
+        "heading": "Authentication and authorization",
+        "text": "The platform supports Google OAuth through Supabase Auth. Authorization is enforced at the database level: Supabase Row Level Security policies restrict conversations and protected information according to the authenticated user's role and participation. Creator-to-creator conversations, for example, are accessible only to their two participants."
       },
       {
-        "heading": "Current status",
-        "text": "Active and live. Current version: v1.2.0."
+        "heading": "Database and backend architecture",
+        "text": "Supabase and PostgreSQL store creator and brand profiles, campaigns and deals, comments, conversations, messages, offers, authentication relationships, and access-control rules. PostgreSQL functions and RPCs handle sensitive operations such as starting conversations. For creator networking, the backend verifies that the target creator participated in the selected published deal instead of trusting an arbitrary client request."
+      },
+      {
+        "heading": "UI and UX",
+        "text": "The interface uses a soft neo-brutalist design system with strong borders, hard shadows, compact rounded corners, bold typography, and responsive layouts. Desktop hover-dependent actions were adapted for touch devices, messaging received dedicated mobile work, and the floating Quick Actions button uses a premium animated glowing-border treatment."
+      },
+      {
+        "heading": "Technology stack",
+        "items": [
+          "Frontend: Next.js, React, TypeScript, Tailwind CSS",
+          "Backend and database: Supabase, PostgreSQL",
+          "Authentication: Supabase Auth and Google OAuth",
+          "Realtime: Supabase Realtime",
+          "Validation: Zod",
+          "Forms: React Hook Form",
+          "Icons: Lucide React",
+          "Testing: Vitest",
+          "Deployment: Cloudflare Workers",
+          "Build tooling: Vite, Vinext, Wrangler",
+          "Additional platform work: Capacitor"
+        ]
+      },
+      {
+        "heading": "Engineering challenges",
+        "text": "A major challenge was making messaging behave like a realtime communication product rather than a database-backed inbox. Earlier versions could require a refresh before received messages appeared, so the architecture was improved with realtime subscriptions and additional synchronization while preserving replies and message deletion. Creator ↔ Creator messaging also had to be added without breaking the existing Brand ↔ Creator model, requiring explicit conversation types and participant relationships while maintaining compatibility."
+      },
+      {
+        "heading": "Mobile messaging challenges",
+        "text": "Long messages, URLs, menus, reply actions, and message controls could overflow or become inaccessible on smaller screens. The layouts and interactions were adjusted so important actions remain available on touch devices without depending on desktop hover states."
+      },
+      {
+        "heading": "Security and data isolation",
+        "text": "The application treats database access controls—not frontend visibility—as the security boundary. Policies distinguish Brand–Creator from Creator–Creator conversations, block non-participants from private creator conversations through the normal authenticated client, and use controlled database functions with validation for sensitive conversation creation."
+      },
+      {
+        "heading": "Impact and status",
+        "text": "Status: Active / Live. Current release: v1.2.0. Platform: Web application. Deployment: Cloudflare Workers. Database: Supabase/PostgreSQL. Development: AI-assisted full-stack development."
+      },
+      {
+        "heading": "Project impact",
+        "text": "Collab Deal OS became one of my larger full-stack projects because it moved beyond a static interface into a functioning multi-role application involving authentication, relational data, realtime communication, database authorization, marketplace interactions, responsive design, production migrations, testing, and cloud deployment. It represents my progression from frontend work toward understanding how a production-style application connects UI → authentication → backend logic → PostgreSQL → realtime systems → authorization → testing → deployment."
       },
       {
         "heading": "Source",
