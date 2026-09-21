@@ -46,13 +46,14 @@ function cardMarkup(project) {
   const id = escapeHtml(project.id);
   const name = escapeHtml(project.name);
   const title = project.visualLabel.split(' / ').map(part => `<span>${escapeHtml(part)}</span>`).join('');
-  const demo = project.demoUrl ? `<a href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">${project.id === 'collab-deal-os' ? 'Demo only' : 'Live site'} ↗</a>` : '';
+  const demo = project.demoUrl ? `<a href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">Live site ↗</a>` : '';
   const github = project.githubUrl ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">Code ↗</a>` : '';
   const download = project.downloadUrl ? `<a href="${escapeHtml(project.downloadUrl)}"${project.downloadUrl.startsWith('assets/') ? ' download' : ' target="_blank" rel="noopener noreferrer"'}>${escapeHtml(project.downloadLabel || 'Download')} ↓</a>` : '';
   const features = project.features.slice(0, 3).map(feature => `<li>${escapeHtml(feature)}</li>`).join('');
-  return `<article class="project-card" data-expanded="false">
+  const pin = project.pinned ? '<span class="project-pin"><span aria-hidden="true">📌</span> PINNED</span>' : '';
+  return `<article class="project-card" data-expanded="false" data-pinned="${String(Boolean(project.pinned))}">
     <button class="project-cover cover-${id}" type="button" data-project-toggle="${id}" aria-expanded="false" aria-controls="project-panel-${id}" aria-label="Toggle details for ${name}">
-      <span class="cover-label">PROJECT / ${number}</span><span class="cover-title" aria-hidden="true">${title}</span>
+      <span class="cover-label">${pin}<span>PROJECT / ${number}</span></span><span class="cover-title" aria-hidden="true">${title}</span>
       <span class="cover-bottom"><span>${escapeHtml(project.tech.slice(0,3).join(' / '))}</span><span class="cover-arrow" aria-hidden="true">+</span></span>
     </button>
     <div class="project-body"><div class="project-title-row"><h3 id="project-title-${id}">${name}</h3><span class="status">${escapeHtml(project.statusLabel)}</span></div>
@@ -290,7 +291,7 @@ function initNavigation() {
 
 async function loadProjects() {
   try {
-    const response = await fetch('data/projects.json?v=projects-9');
+    const response = await fetch('data/projects.json?v=projects-10');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.projects = await response.json();
     document.querySelector(".work-count").textContent = `01—${String(state.projects.length).padStart(2, "0")}`;
