@@ -1,0 +1,25 @@
+name: Publish Zainul portfolio
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'zainul/portfolio.br.b64'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore static HTML source
+        run: |
+          node -e "const fs=require('fs'),z=require('zlib');fs.writeFileSync('zainul/index.html',z.brotliDecompressSync(Buffer.from(fs.readFileSync('zainul/portfolio.br.b64','utf8').trim(),'base64')))"
+      - name: Commit and publish page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add zainul/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "site: publish Zainul portfolio"
+            git push origin HEAD:main
+          fi
