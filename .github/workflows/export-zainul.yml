@@ -16,15 +16,7 @@ jobs:
         run: |
           mkdir -p offline/Zainul-Portfolio
           cp zainul/index.html offline/Zainul-Portfolio/index.html
-          cat > offline/Zainul-Portfolio/README.txt <<'EOF'
-ZAINUL PORTFOLIO — OFFLINE COPY
-
-Open index.html in a modern browser.
-
-The portfolio is self-contained in a single HTML file.
-Animations, dark mode, and interactive effects work offline.
-The contact form copies a prepared message to the clipboard and does not send data.
-EOF
+          printf '%s\n'             'ZAINUL PORTFOLIO — OFFLINE COPY'             ''             'Open index.html in a modern browser.'             ''             'The portfolio is self-contained in a single HTML file.'             'Animations, dark mode, and interactive effects work offline.'             'The contact form copies a prepared message to the clipboard and does not send data.'             > offline/Zainul-Portfolio/README.txt
       - name: Upload offline portfolio
         uses: actions/upload-artifact@v4
         with:
