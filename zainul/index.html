@@ -151,9 +151,21 @@ button{font:inherit}
 }
 .neu-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-strong)}
 .neu-btn.primary{
-  border-color:transparent;color:#fff;
-  background:linear-gradient(135deg,var(--accent),#6f7df8 58%,var(--accent-2));
-  box-shadow:0 14px 30px color-mix(in srgb,var(--accent) 25%,transparent);
+  position:relative;overflow:hidden;
+  border-color:rgba(255,255,255,.08);color:#f7fbf8;
+  background:linear-gradient(135deg,#184f43 0%,#236957 46%,#3e8b70 100%);
+  box-shadow:0 14px 30px rgba(24,79,67,.22),inset 0 1px 0 rgba(255,255,255,.12);
+}
+.neu-btn.primary::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.05) 36%,rgba(215,181,105,.18) 50%,rgba(255,255,255,.05) 64%,transparent 100%);
+  transform:translateX(-120%);transition:transform .55s ease;pointer-events:none;
+}
+.neu-btn.primary:hover::before{transform:translateX(120%)}
+html[data-theme="dark"] .neu-btn.primary{
+  color:#f3fbf7;
+  background:linear-gradient(135deg,#1d5b4d 0%,#2f8069 52%,#4a9f80 100%);
+  box-shadow:0 14px 34px rgba(0,0,0,.32),0 0 0 1px rgba(102,193,159,.08) inset;
 }
 .theme-toggle{
   width:46px;height:46px;border-radius:14px;border:1px solid var(--line);
