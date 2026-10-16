@@ -3,92 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="M D. Zainul Abdeen — technology, design, business operations and product ideas.">
+  <meta name="theme-color" content="#edf2f7">
+  <meta name="description" content="M D. Zainul Abdeen — BCA student exploring web development, design, business operations and product ideas.">
+  <meta property="og:title" content="M D. Zainul Abdeen — Portfolio">
+  <meta property="og:description" content="Technology, design and business — ideas shaped by practical learning and real-world operations.">
   <title>M D. Zainul Abdeen — Portfolio</title>
+  <style>
+    :root{
+      --bg:#edf2f7;--surface:#edf2f7;--navy:#17324d;--navy-2:#234b6b;--gold:#b18a43;
+      --text:#1d2a35;--muted:#647381;--line:rgba(23,50,77,.12);--white:#fff;
+      --r-lg:28px;--r-md:20px;--r-sm:14px;
+      --shadow-out:10px 10px 24px rgba(28,45,62,.10),-10px -10px 24px rgba(255,255,255,.92);
+      --shadow-hover:14px 14px 30px rgba(28,45,62,.13),-12px -12px 28px rgba(255,255,255,.96);
+      --shadow-in:inset 5px 5px 12px rgba(28,45,62,.10),inset -5px -5px 12px rgba(255,255,255,.95);
+      --focus:0 0 0 3px rgba(35,75,107,.24);--max:1220px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .section{padding:88px 0}.section.tight{padding:54px 0}
+    .neu{background:var(--surface);box-shadow:var(--shadow-out);border-radius:var(--r-md);border:1px solid rgba(255,255,255,.45);transition:.25s ease}
+    .neu:hover{box-shadow:var(--shadow-hover)}
+    .kicker{text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:800;font-size:.78rem}
+    .nav-wrap{position:sticky;top:0;z-index:1000;padding:12px 0;background:linear-gradient(var(--bg),rgba(237,242,247,.86));backdrop-filter:blur(10px)}
+    .nav{min-height:72px;padding:10px 14px 10px 20px;display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:245px}
+    .brand-mark{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#f6f9fc,#dde6ee);box-shadow:var(--shadow-out);font-weight:900;color:var(--navy)}
+    .brand-copy strong{display:block;color:var(--navy);font-size:.97rem;line-height:1.05}.brand-copy span{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
+    .nav-links{display:flex;gap:4px;align-items:center;margin-left:auto}.nav-link{padding:11px 12px;border-radius:12px;color:var(--muted);font-weight:700;font-size:.89rem}
+    .nav-link:hover,.nav-link.active{color:var(--navy);background:rgba(255,255,255,.42);box-shadow:var(--shadow-in)}
+    .menu-btn{display:none;border:0;background:transparent;color:var(--navy);font-size:1.5rem;padding:8px 10px}
+    .mobile-menu{display:none}
+    .neu-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border:1px solid rgba(255,255,255,.5);background:var(--surface);color:var(--navy);font-weight:800;border-radius:15px;box-shadow:var(--shadow-out);transition:.22s ease;min-height:48px}
+    .neu-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}.neu-btn:active{transform:translateY(1px);box-shadow:var(--shadow-in)}
+    .neu-btn.primary{background:linear-gradient(145deg,#234b6b,#17324d);color:#fff;border-color:transparent}
+    .hero{padding:58px 0 52px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+    .hero-copy h1{font-size:clamp(3rem,6vw,5.35rem);line-height:.98;color:var(--navy);max-width:780px;margin:14px 0 20px;letter-spacing:-.045em}
+    .hero-copy h1 span{color:var(--gold)}.hero-copy p{font-size:1.12rem;color:var(--muted);max-width:650px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:26px}.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-weight:700}.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+    .visual-shell{padding:18px;border-radius:32px;background:linear-gradient(145deg,#f6f9fc,#dfe7ee);box-shadow:var(--shadow-out)}
+    .profile-visual{aspect-ratio:4/3;border-radius:25px;padding:30px;background:linear-gradient(135deg,rgba(35,75,107,.08),rgba(177,138,67,.08));border:1px dashed rgba(23,50,77,.2);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+    .profile-orbit{position:absolute;width:330px;height:330px;border:1px solid rgba(23,50,77,.16);border-radius:50%;right:-55px;bottom:-100px}
+    .profile-orbit:before,.profile-orbit:after{content:"";position:absolute;border:1px solid rgba(177,138,67,.18);border-radius:50%;inset:52px}.profile-orbit:after{inset:105px}
+    .initials{font-size:clamp(5rem,9vw,8rem);font-weight:900;letter-spacing:-.08em;color:var(--navy);line-height:.8;z-index:1}.visual-copy{z-index:1;max-width:250px}.visual-copy strong{display:block;color:var(--navy);font-size:1.1rem}.visual-copy span{color:var(--muted);font-size:.9rem}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stat{padding:24px}.stat .label{color:var(--muted);font-weight:700;font-size:.9rem}.stat .value{font-size:2rem;color:var(--navy);font-weight:900;margin:6px 0}.stat .mini{font-size:.78rem;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .section-heading{max-width:760px;margin-bottom:34px}.section-heading h2{font-size:clamp(2rem,4vw,3.35rem);line-height:1.08;margin:.35rem 0 1rem;color:var(--navy)}.section-heading p{color:var(--muted);font-size:1.05rem}
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}.image-placeholder{min-height:360px;border-radius:28px;padding:16px;background:linear-gradient(145deg,#f6f9fc,#dfe7ee);box-shadow:var(--shadow-out)}
+    .about-visual{height:100%;min-height:330px;border-radius:21px;border:1px dashed rgba(23,50,77,.22);background:linear-gradient(140deg,rgba(35,75,107,.08),rgba(177,138,67,.08));display:grid;place-items:center;padding:24px}
+    .about-visual .stack{display:grid;gap:12px;width:min(320px,100%)}.stack-card{padding:18px;border-radius:16px;background:var(--surface);box-shadow:var(--shadow-out);color:var(--navy);font-weight:800}
+    .copy h3{font-size:2.3rem;color:var(--navy);margin:.2rem 0 1rem;line-height:1.1}.copy p{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:24px}.card h3{color:var(--navy);margin:.1rem 0 .55rem;font-size:1.2rem}.card p{color:var(--muted);margin:.35rem 0}
+    .icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#f5f9fc,#dde6ee);box-shadow:var(--shadow-out);font-size:1.35rem;margin-bottom:16px;color:var(--gold)}
+    .role{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(177,138,67,.11);color:#7d622a;font-size:.72rem;font-weight:900;margin-bottom:13px}.project-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{padding:8px 11px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow-out);font-weight:700;color:var(--muted);font-size:.78rem}
+    .featured{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}.featured-visual{min-height:340px;border-radius:18px;background:linear-gradient(145deg,#e5edf3,#f8fbfd);box-shadow:var(--shadow-in);display:grid;place-items:center;position:relative;overflow:hidden}.ev{width:230px;height:150px;position:relative}.ev .body{position:absolute;left:32px;top:55px;width:125px;height:55px;background:linear-gradient(145deg,#dbe7d5,#a9c9a0);border-radius:55px 40px 24px 30px;transform:skewX(-10deg)}.ev .box{position:absolute;right:12px;top:23px;width:90px;height:72px;border:5px solid var(--navy);border-radius:12px;background:#bdd6b4}.ev .wheel{position:absolute;bottom:0;width:54px;height:54px;border-radius:50%;border:8px solid var(--navy);background:#b8c6cd}.ev .wheel.a{left:30px}.ev .wheel.b{right:22px}.featured-copy{padding:24px}.featured-copy h3{font-size:2.6rem;line-height:.95;color:var(--navy);margin:12px 0}.featured-copy p{color:var(--muted)}
+    .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.focus-card{padding:24px}.focus-card h3{margin:.1rem 0 .4rem;color:var(--navy)}.focus-card p{color:var(--muted);margin:0}
+    .timeline{position:relative;margin-top:26px;padding-left:28px}.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:rgba(23,50,77,.18)}.timeline-item{position:relative;padding:0 0 28px 22px}.timeline-item:before{content:"";position:absolute;left:-1px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 4px rgba(35,75,107,.08),var(--shadow-out)}.timeline-year{font-weight:900;color:var(--gold);font-size:1.05rem}.timeline-title{font-weight:900;color:var(--navy);margin:2px 0 3px}.timeline-item p{color:var(--muted);margin:.2rem 0}
+    .contact-card{padding:36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}.contact-card h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--navy);margin:.25rem 0}.contact-card p{color:var(--muted);max-width:640px}
+    .footer{padding:56px 0 28px;border-top:1px solid var(--line)}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}.footer h4{color:var(--navy);margin:0 0 10px}.footer p,.footer a{color:var(--muted);font-size:.9rem}.footer-list{display:grid;gap:7px}.copyright{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+    [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}[data-reveal].show{opacity:1;transform:none}
+    @media(max-width:980px){.hero-grid,.split,.featured{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr 1fr}.nav-links{display:none}.menu-btn{display:block;margin-left:auto}.mobile-menu.open{display:grid;width:min(var(--max),calc(100% - 40px));margin:8px auto 0;padding:14px;gap:6px}.mobile-menu a{padding:12px 14px;border-radius:12px;color:var(--muted);font-weight:700}.mobile-menu a:hover{box-shadow:var(--shadow-in);color:var(--navy)}}
+    @media(max-width:700px){.container{width:min(var(--max),calc(100% - 24px))}.section{padding:68px 0}.hero{padding-top:34px}.hero-copy h1{font-size:clamp(3rem,16vw,4.8rem)}.stats,.grid-3,.focus-grid,.footer-grid{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr}.brand-copy span{display:none}.brand{min-width:0}.nav{padding-left:12px}.visual-shell{padding:12px}.profile-visual{min-height:330px}.featured-copy{padding:12px 6px}.featured{padding:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}.neu,.neu-btn{transition:none}}
+  </style>
 </head>
 <body>
-  <header id="top">
-    <p><strong>M D. Zainul Abdeen</strong></p>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a> |
-      <a href="#projects">Projects</a> |
-      <a href="#capabilities">Areas of focus</a> |
-      <a href="#experience">Experience</a> |
-      <a href="#contact">Contact</a>
+  <div class="nav-wrap">
+    <nav class="container nav neu" aria-label="Primary navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">ZA</span>
+        <span class="brand-copy"><strong>M D. Zainul Abdeen</strong><span>Technology · Design · Business</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#focus">Focus</a>
+        <a class="nav-link" href="#journey">Journey</a>
+      </div>
+      <a class="neu-btn primary" href="#contact">Let's Connect</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
     </nav>
-  </header>
+    <div class="mobile-menu neu" id="mobileMenu">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#focus">Focus</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    </div>
+  </div>
 
   <main>
-    <section aria-labelledby="intro-heading">
-      <h1 id="intro-heading">M D. Zainul Abdeen</h1>
-      <p>Technology, design and business.</p>
-      <p>I'm learning to build digital experiences and exploring practical ideas inspired by real-world operations.</p>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <div class="kicker">BCA Student · Builder · Business Learner</div>
+          <h1>Ideas shaped by <span>real-world problems.</span></h1>
+          <p>I explore the intersection of web development, visual communication, business operations and product thinking — learning by turning ideas into practical concepts.</p>
+          <div class="hero-actions">
+            <a class="neu-btn primary" href="#projects">Explore Projects →</a>
+            <a class="neu-btn" href="#about">About Me</a>
+          </div>
+          <div class="hero-meta"><span>⌁ India</span><span>◌ Currently studying BCA</span></div>
+        </div>
+        <div class="visual-shell" data-reveal>
+          <div class="profile-visual">
+            <div class="initials">ZA</div>
+            <div class="profile-orbit" aria-hidden="true"></div>
+            <div class="visual-copy"><strong>Curiosity → Practice → Progress</strong><span>Technology + Design + Business</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p>I'm a first-year BCA student with an interest in web development, visual communication, marketing and entrepreneurship. My exposure to a family distribution business has shaped how I think about real customer and operational problems.</p>
-      <p>Current focus: Learn. Experiment. Build.</p>
+    <section class="section tight">
+      <div class="container stats">
+        <div class="stat neu" data-reveal><div class="mini">Education</div><div class="value">BCA</div><div class="label">First-year student</div></div>
+        <div class="stat neu" data-reveal><div class="mini">Product</div><div class="value">3</div><div class="label">Current explorations</div></div>
+        <div class="stat neu" data-reveal><div class="mini">Experience</div><div class="value">Ops</div><div class="label">Family distribution exposure</div></div>
+        <div class="stat neu" data-reveal><div class="mini">Direction</div><div class="value">Build</div><div class="label">Learn, test and improve</div></div>
+      </div>
     </section>
 
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Selected explorations</h2>
-      <p>Not a wall of inflated achievements. A transparent look at concepts I'm thinking through and work I want to develop.</p>
-
-      <article>
-        <h3>Falcon EV</h3>
-        <p><strong>Role: Founder</strong> | Early-stage concept</p>
-        <p>Exploring an electric two-wheeler with a proposed 150-litre cold-storage sidecar for medical uses and distribution. Shaped by questions of efficiency, access and real delivery needs.</p>
-        <p>Proposed freezer capacity: 150 litres. Not an engineering validation.</p>
-        <p>EV + Cold — Two-wheeler distribution concept, exploration stage.</p>
-        <p>Transparency note: Falcon EV is a business/product concept. No completed prototype, customer pilot, funding or commercial launch is claimed here.</p>
-      </article>
-
-      <article>
-        <h3>Magazine Studio</h3>
-        <p><strong>Role: Founder</strong> | App idea</p>
-        <p>An idea for a web app where people can customise magazine-style layouts, typography, photos and colour.</p>
-      </article>
-
-      <article>
-        <h3>G Track</h3>
-        <p><strong>Role: Co-founder</strong> | Research idea</p>
-        <p>Researching a possible gas-leak detection and cylinder-level monitoring solution for everyday use.</p>
-      </article>
+    <section class="section" id="about">
+      <div class="container split">
+        <div class="image-placeholder" data-reveal>
+          <div class="about-visual">
+            <div class="stack">
+              <div class="stack-card">01 / Technology</div>
+              <div class="stack-card">02 / Visual Design</div>
+              <div class="stack-card">03 / Business Operations</div>
+              <div class="stack-card">04 / Product Thinking</div>
+            </div>
+          </div>
+        </div>
+        <div class="copy" data-reveal>
+          <div class="kicker">About me</div>
+          <h3>Learning across disciplines, not inside one box.</h3>
+          <p>I'm a first-year BCA student interested in web development, visual communication, marketing and entrepreneurship. My practical exposure to a family distribution business has shaped how I think about customer needs, logistics and everyday operational problems.</p>
+          <p>My current focus is simple: strengthen the fundamentals, build demonstrable work and understand what turns an interesting idea into something genuinely useful.</p>
+          <a class="neu-btn" href="#journey">See My Journey →</a>
+        </div>
+      </div>
     </section>
 
-    <section id="capabilities" aria-labelledby="capabilities-heading">
-      <h2 id="capabilities-heading">Areas of focus</h2>
-      <p>Building an early foundation across digital work, visual thinking and the operational side of businesses.</p>
-      <h3>Web Development</h3>
-      <p>Developing my programming foundation through BCA coursework and beginner Python practice, with an interest in practical, user-facing web applications.</p>
-      <h3>Visual Design</h3>
-      <p>Exploring graphic design, presentation structure, project imagery and visual communication to make complex ideas easier to understand.</p>
-      <h3>Business Operations</h3>
-      <p>Practical exposure to managing activities in a family distribution business, informing my interest in customer needs and last-mile operations.</p>
-      <h3>Product &amp; Marketing</h3>
-      <p>Early-stage exploration of value propositions, competitor research, customer problems, positioning, product concepts and business models.</p>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div class="kicker">Selected explorations</div>
+          <h2>Ideas I'm actively thinking through.</h2>
+          <p>Concepts are labelled honestly. These are not inflated claims of launched companies or validated products.</p>
+        </div>
+
+        <article class="featured neu" data-reveal>
+          <div class="featured-visual">
+            <div class="ev" aria-hidden="true"><div class="body"></div><div class="box"></div><div class="wheel a"></div><div class="wheel b"></div></div>
+          </div>
+          <div class="featured-copy">
+            <div class="role">Founder · Early-stage concept</div>
+            <div class="kicker">Featured project / 001</div>
+            <h3>Falcon EV</h3>
+            <p>An electric two-wheeler distribution concept with a proposed 150-litre cold-storage sidecar for medical uses and distribution. The idea is being explored around efficiency, access, practical delivery needs and potential business viability.</p>
+            <div class="project-meta"><span class="pill">EV + Cold Storage</span><span class="pill">Distribution</span><span class="pill">Product Research</span></div>
+            <p style="font-size:.82rem;margin-top:18px">Concept stage only — no completed prototype, customer pilot, funding or commercial launch is claimed.</p>
+          </div>
+        </article>
+
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card neu" data-reveal>
+            <div class="icon">M</div><div class="role">Founder · App idea</div>
+            <h3>Magazine Studio</h3>
+            <p>A web application idea where people can customise magazine-style layouts, typography, photos and colour.</p>
+            <div class="project-meta"><span class="pill">Web App</span><span class="pill">Design</span></div>
+          </article>
+          <article class="card neu" data-reveal>
+            <div class="icon">G</div><div class="role">Co-founder · Research idea</div>
+            <h3>G Track</h3>
+            <p>Researching a possible gas-leak detection and cylinder-level monitoring solution for everyday use.</p>
+            <div class="project-meta"><span class="pill">Safety</span><span class="pill">Monitoring</span></div>
+          </article>
+          <article class="card neu" data-reveal>
+            <div class="icon">↗</div><div class="role">Current direction</div>
+            <h3>Next Build</h3>
+            <p>Turning more of the ideas above into small, testable digital projects with clearer evidence of execution.</p>
+            <div class="project-meta"><span class="pill">Learning</span><span class="pill">Execution</span></div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Journey so far</h2>
-      <h3>Bachelor of Computer Applications</h3>
-      <p>Currently: First-year BCA studies. Learning programming fundamentals and exploring how technology connects with business problems.</p>
-      <h3>Family Distribution Business</h3>
-      <p>Practical exposure: Involvement in distribution management during school, creating a firsthand perspective on logistics, service and everyday operational decisions.</p>
-      <h3>Leadership &amp; Competitions</h3>
-      <p>School years: Reported wins in a district-level science exhibition, debate and quiz competitions, along with service as house captain of a house that won the house cup.</p>
+    <section class="section tight" id="focus">
+      <div class="container">
+        <div class="section-heading" data-reveal><div class="kicker">Areas of focus</div><h2>Different disciplines. One mindset.</h2><p>Building a foundation across technology, design and the operational side of business.</p></div>
+        <div class="focus-grid">
+          <article class="focus-card neu" data-reveal><div class="icon">⌘</div><h3>Web Development</h3><p>Developing programming fundamentals through BCA studies and beginner Python practice, with an interest in practical user-facing web applications.</p></article>
+          <article class="focus-card neu" data-reveal><div class="icon">◇</div><h3>Visual Design</h3><p>Exploring graphic design, presentation structure, project imagery and clear visual communication.</p></article>
+          <article class="focus-card neu" data-reveal><div class="icon">↔</div><h3>Business Operations</h3><p>Practical exposure to distribution activities, customer needs, logistics and everyday operating decisions.</p></article>
+          <article class="focus-card neu" data-reveal><div class="icon">◎</div><h3>Product & Marketing</h3><p>Exploring customer problems, value propositions, competitor research, positioning and early business models.</p></article>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p>A direct public contact address hasn't been provided yet. Contact information can be added here when available.</p>
+    <section class="section" id="journey">
+      <div class="container split">
+        <div class="copy" data-reveal><div class="kicker">Journey so far</div><h3>Rooted in practical learning.</h3><p>A compact timeline of the experiences that currently shape how I think and what I want to build next.</p></div>
+        <div class="neu" style="padding:30px" data-reveal>
+          <div class="timeline">
+            <div class="timeline-item"><div class="timeline-year">Currently</div><div class="timeline-title">Bachelor of Computer Applications</div><p>First-year BCA studies, strengthening programming fundamentals and exploring the connection between technology and business.</p></div>
+            <div class="timeline-item"><div class="timeline-year">Practical exposure</div><div class="timeline-title">Family Distribution Business</div><p>Involvement in distribution management during school, creating a firsthand perspective on logistics, service and operational decisions.</p></div>
+            <div class="timeline-item"><div class="timeline-year">School years</div><div class="timeline-title">Leadership & Competitions</div><p>Reported wins in a district-level science exhibition, debate and quiz competitions, alongside service as house captain of a house that won the house cup.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight" id="contact">
+      <div class="container contact-card neu" data-reveal>
+        <div><div class="kicker">What's next</div><h2>Build first. Improve continuously.</h2><p>A direct public email or social profile hasn't been provided yet. When Zainul chooses what he wants publicly listed, those links can be added here.</p></div>
+        <a class="neu-btn primary" href="#top">Back to Top ↑</a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 M D. Zainul Abdeen</p>
-    <p><a href="#top">Back to top</a></p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4>M D. Zainul Abdeen</h4><p>Technology, design and business — explored through practical learning and honest project building.</p></div>
+        <div><h4>Explore</h4><div class="footer-list"><a href="#about">About</a><a href="#projects">Projects</a><a href="#focus">Areas of focus</a><a href="#journey">Journey</a></div></div>
+        <div><h4>Current status</h4><p>BCA student<br>Building & learning<br>India</p></div>
+      </div>
+      <div class="copyright"><span>© 2026 M D. Zainul Abdeen</span><span>Portfolio · Built around learning, not inflated claims.</span></div>
+    </div>
   </footer>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰'});
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+    const sections=[...document.querySelectorAll('main section[id]')],links=[...document.querySelectorAll('.nav-link')];
+    const spy=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-35% 0px -55%'});
+    sections.forEach(s=>spy.observe(s));
+  </script>
 </body>
 </html>
