@@ -423,9 +423,43 @@ html[data-theme="dark"] .neu-btn.primary{
   .slogan-glow,.floating-dot,.scroll-cue-line:after{animation:none}
   .parallax-soft,.tilt-card{transform:none!important}
 }
+
+/* Ambient electron-orbit background: orbit lines + electrons only, no nucleus */
+.atom-field{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.atom-orbit{position:absolute;width:74px;height:74px;opacity:.18;animation:atomFloat 15s ease-in-out infinite alternate}
+.atom-orbit .ring{position:absolute;inset:14px;border:1px solid color-mix(in srgb,var(--accent) 42%,transparent);border-radius:50%;transform:rotate(var(--r))}
+.atom-orbit .ring:nth-child(2){transform:rotate(calc(var(--r) + 60deg))}
+.atom-orbit .ring:nth-child(3){transform:rotate(calc(var(--r) + 120deg))}
+.atom-orbit .ring::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent-2);top:-2px;left:50%;box-shadow:0 0 7px color-mix(in srgb,var(--accent-2) 70%,transparent);animation:electronOrbit 3.8s linear infinite}
+.atom-orbit .ring:nth-child(2)::after{animation-duration:4.7s;animation-delay:-1.2s;background:var(--gold)}
+.atom-orbit .ring:nth-child(3)::after{animation-duration:5.4s;animation-delay:-2.1s}
+.atom-orbit.a1{left:5%;top:18%;--r:18deg}.atom-orbit.a2{right:7%;top:32%;--r:-12deg;animation-delay:-4s;transform:scale(.82)}
+.atom-orbit.a3{left:10%;top:71%;--r:34deg;animation-delay:-8s;transform:scale(.68)}.atom-orbit.a4{right:13%;top:79%;--r:4deg;animation-delay:-11s;transform:scale(.9)}
+.atom-orbit.a5{left:47%;top:51%;--r:-25deg;animation-delay:-6s;transform:scale(.58);opacity:.11}
+@keyframes electronOrbit{to{transform:rotate(360deg);transform-origin:0 39px}}
+@keyframes atomFloat{from{translate:0 0}to{translate:10px -16px}}
+.connect-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:start}
+.connect-intro{padding:10px 6px}.connect-intro h2{font-size:clamp(2.4rem,5vw,4.6rem);line-height:1;letter-spacing:-.055em;margin:14px 0 18px;color:var(--heading)}
+.connect-intro p{color:var(--muted);max-width:520px}.connect-points{display:grid;gap:12px;margin-top:26px}
+.connect-point{padding:16px 0;border-top:1px solid var(--line)}.connect-point strong{display:block;color:var(--heading)}.connect-point span{font-size:.88rem;color:var(--muted)}
+.connect-form{padding:28px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-soft)}
+.connect-form h3{margin:0 0 6px;color:var(--heading);font-size:1.45rem}.connect-form>p{margin:0 0 22px;color:var(--muted)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:16px}.field label{display:block;margin-bottom:7px;font-size:.84rem;font-weight:800;color:var(--heading)}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:13px;padding:13px 14px;outline:none;transition:border-color .2s,box-shadow .2s,background .35s}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.field textarea{min-height:140px;resize:vertical}
+.form-status{min-height:24px;margin-top:12px;color:var(--accent);font-weight:700;font-size:.9rem}.form-note{font-size:.78rem;color:var(--muted);margin-top:10px}
+@media(max-width:820px){.connect-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.atom-orbit{opacity:.12}}
+@media(prefers-reduced-motion:reduce){.atom-orbit,.atom-orbit .ring::after{animation:none}}
 </style>
 </head>
 <body>
+  <div class="atom-field" aria-hidden="true">
+    <div class="atom-orbit a1"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+    <div class="atom-orbit a2"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+    <div class="atom-orbit a3"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+    <div class="atom-orbit a4"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+    <div class="atom-orbit a5"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+  </div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <span class="floating-dot one" aria-hidden="true"></span><span class="floating-dot two" aria-hidden="true"></span><span class="floating-dot three" aria-hidden="true"></span>
   <div class="nav-wrap" id="navWrap">
@@ -440,12 +474,12 @@ html[data-theme="dark"] .neu-btn.primary{
         <a class="nav-link" href="#focus">Focus</a>
         <a class="nav-link" href="#journey">Journey</a>
       </div>
-      <a class="neu-btn primary" href="./contact/">Let's Connect</a>
+      <a class="neu-btn primary" href="#contact">Let's Connect</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode"><span id="themeIcon" aria-hidden="true">☾</span></button>
       <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
     </nav>
     <div class="mobile-menu neu" id="mobileMenu">
-      <a href="#about">About</a><a href="#projects">Projects</a><a href="#focus">Focus</a><a href="#journey">Journey</a><a href="./contact/">Contact</a>
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#focus">Focus</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
     </div>
   </div>
 
@@ -586,10 +620,31 @@ html[data-theme="dark"] .neu-btn.primary{
       </div>
     </section>
 
-    <section class="section tight" id="contact">
-      <div class="container contact-card neu" data-reveal>
-        <div><div class="kicker">What's next</div><h2>Build first. Improve continuously.</h2><p>Have a product idea or collaboration in mind? Visit the dedicated connect page to prepare your message.</p></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="neu-btn primary" href="./contact/">Let’s Connect ↗</a><a class="neu-btn" href="#top">Back to Top ↑</a></div>
+    <section class="section" id="contact">
+      <div class="container connect-grid">
+        <div class="connect-intro" data-reveal>
+          <div class="kicker">Let's connect</div>
+          <h2>Start a useful conversation.</h2>
+          <p>Have a product idea, collaboration, business problem or thoughtful conversation in mind? Write it here and prepare a clean message for Zainul.</p>
+          <div class="connect-points">
+            <div class="connect-point"><strong>Product & business ideas</strong><span>Useful concepts, market problems and practical execution.</span></div>
+            <div class="connect-point"><strong>Collaboration & learning</strong><span>Projects, feedback and opportunities to build together.</span></div>
+            <div class="connect-point"><strong>Public contact</strong><span>A direct public email has not been provided yet, so the form copies your message instead of pretending to send it.</span></div>
+          </div>
+        </div>
+        <form class="connect-form" id="connectForm" data-reveal>
+          <h3>Write your message.</h3>
+          <p>Fill this in and copy a ready-to-send message.</p>
+          <div class="form-row">
+            <div class="field"><label for="connectName">Your name</label><input id="connectName" name="name" autocomplete="name" required maxlength="100" placeholder="Your name"></div>
+            <div class="field"><label for="connectEmail">Your email</label><input id="connectEmail" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com"></div>
+          </div>
+          <div class="field"><label for="connectTopic">What's this about?</label><select id="connectTopic" name="topic"><option>Collaboration</option><option>Product idea</option><option>Business inquiry</option><option>Learning / feedback</option><option>Just saying hello</option></select></div>
+          <div class="field"><label for="connectMessage">Message</label><textarea id="connectMessage" name="message" required maxlength="5000" placeholder="Tell Zainul what you're working on..."></textarea></div>
+          <button class="neu-btn primary" type="submit">Copy Message ↗</button>
+          <div class="form-status" id="connectStatus" role="status" aria-live="polite"></div>
+          <div class="form-note">Nothing is sent or stored by this form.</div>
+        </form>
       </div>
     </section>
   </main>
@@ -656,6 +711,24 @@ html[data-theme="dark"] .neu-btn.primary{
       }
     }
     addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+    const connectForm=document.getElementById('connectForm');
+    if(connectForm){
+      connectForm.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const data=new FormData(connectForm);
+        const msg='To: M D. Zainul Abdeen\nFrom: '+data.get('name')+' ('+data.get('email')+')\nTopic: '+data.get('topic')+'\n\n'+data.get('message');
+        const status=document.getElementById('connectStatus');
+        try{
+          await navigator.clipboard.writeText(msg);
+          status.textContent='Message copied. Nothing has been sent.';
+        }catch(err){
+          const ta=document.createElement('textarea');ta.value=msg;ta.style.position='fixed';ta.style.left='-9999px';
+          document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();
+          status.textContent=ok?'Message copied. Nothing has been sent.':'Clipboard unavailable — please copy the message manually.';
+        }
+      });
+    }
 
     if(!reduceMotion){
       document.querySelectorAll('.tilt-card').forEach(card=>{
