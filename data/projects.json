@@ -302,6 +302,81 @@
     ]
   },
   {
+    "id": "decibel-tracker",
+    "name": "Decibel Tracker",
+    "category": "Android sound meter",
+    "featured": true,
+    "statusLabel": "Android app · v1.0.0",
+    "description": "A native Android sound meter that estimates sound levels from microphone input and visualizes changes with a live gauge and graph. Measurement sessions are stored locally for later review and PDF export.",
+    "whatItDoes": "Measures estimated sound levels, records sessions on-device, and exports session graphs and statistics as PDF reports.",
+    "tech": [
+      "Kotlin",
+      "Android SDK",
+      "Jetpack Compose",
+      "Material 3",
+      "Room / SQLite",
+      "AudioRecord",
+      "Android PdfDocument",
+      "Kotlin Coroutines"
+    ],
+    "tags": [
+      "android"
+    ],
+    "features": [
+      "Live sound-level readings with an analog gauge and line graph",
+      "Explicitly started measurement sessions saved locally",
+      "Session history with minimum, maximum, and energy-averaged levels",
+      "Reconstructed graphs from saved measurement samples",
+      "PDF reports with session details, statistics, and graphs",
+      "Graph colors change across sound-level thresholds",
+      "Offline-first operation with no account or cloud service"
+    ],
+    "aiRole": "AI-assisted development and iteration.",
+    "impact": "Decibel Tracker brings live sound-level visualization, locally saved measurement sessions, and PDF reporting together in a native Android app. Readings are device-dependent estimates, not calibrated or certified measurements.",
+    "demoUrl": null,
+    "githubUrl": "https://github.com/mohammedzaid00100/Decibel_tracker",
+    "screenshots": [],
+    "visualLabel": "DECIBEL / TRACKER",
+    "readmeTitle": "Decibel Tracker details",
+    "readmeSections": [
+      {
+        "heading": "Overview",
+        "text": "A native Android sound meter that reads microphone input, calculates an estimated level, and visualizes changes over time with an analog gauge and live graph."
+      },
+      {
+        "heading": "Measurement sessions",
+        "text": "Start and stop a session explicitly to save derived numerical samples and session details on-device. Saved sessions can be reopened from history to review their statistics and reconstructed graph."
+      },
+      {
+        "heading": "PDF export",
+        "text": "Generate a report with recording details, available statistics, and the session graph, then choose where to save it using Android's file picker."
+      },
+      {
+        "heading": "Measurement accuracy",
+        "text": "Phone microphones and Android audio processing vary by device. Readings are estimates and are not a substitute for a calibrated, certified sound-level meter. Do not rely on them for occupational-safety, legal, medical, or regulatory decisions."
+      },
+      {
+        "heading": "Privacy and operation",
+        "text": "The app processes microphone samples in memory and does not save raw microphone audio. Derived measurement samples are stored locally when a session is recorded. Core measurement, history, and PDF generation work offline without an account or cloud service."
+      },
+      {
+        "heading": "Technology stack",
+        "items": [
+          "Kotlin and Android SDK",
+          "Jetpack Compose and Material 3",
+          "Room / SQLite for local session data",
+          "AudioRecord for microphone input",
+          "Android PdfDocument and the Storage Access Framework for reports",
+          "Kotlin coroutines and lifecycle-aware state"
+        ]
+      },
+      {
+        "heading": "Source",
+        "text": "https://github.com/mohammedzaid00100/Decibel_tracker"
+      }
+    ]
+  },
+  {
     "id": "companion-dost",
     "name": "Companion / DOST",
     "category": "AI companion prototype",

@@ -6,10 +6,11 @@ A portfolio built with HTML, CSS, and vanilla JavaScript. The redesign uses over
 
 ## Projects
 
-The catalogue was checked against the public repositories and GitHub profile README on 8 September 2026.
+The catalogue was checked against the public repositories and GitHub profile README on 27 October 2026.
 
 | Project | Presentation |
 | --- | --- |
+| Decibel Tracker | Native Android sound meter; local sessions, live graph, and PDF export |
 | Web to EXE | Product/download website; the linked repository is not the desktop packaging engine |
 | TimeDesk | Clock, timer, and stopwatch; live demo and source |
 | Nalanda School | Multi-page school information website; source |
@@ -29,7 +30,7 @@ Edit `data/projects.json`. Copy an existing object and update its unique `id`, n
 
 Add a `.cover-YOUR-ID` rule to `css/style.css` for an optional project-specific background and text colour. Otherwise the cobalt cover is used. Covers are typographic project identities, not screenshots of the linked applications.
 
-The `tags` values support `javascript`, `react`, `node`, and `pwa`. Keep project status honest, especially for archived experiments. All card data and detail content come from the JSON catalogue.
+The `tags` values support `javascript`, `react`, `node`, `pwa`, `android`, and `python`. Keep project status honest, especially for archived experiments. All card data and detail content come from the JSON catalogue.
 
 ## Design and interactions
 
