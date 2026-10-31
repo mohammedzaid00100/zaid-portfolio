@@ -12,6 +12,9 @@ html[data-theme=light]{--bg:#f0f2f8;--panel:#e3e7f0;--text:#151a26;--muted:#525b
 /* Motion begins on the content itself, with no covering loading screen. */
 .hero-word{white-space:nowrap}
 
+.hero-bottom{justify-content:center;align-items:center}
+.explore{display:flex;flex-direction:column;align-items:center;text-align:center}
+
 .hero-letter{display:inline-block;animation:letter-arrive 1.15s cubic-bezier(.16,1,.3,1) both,headline-wave 5.8s ease-in-out infinite;animation-delay:calc(var(--letter)*75ms),calc(1.3s + var(--letter)*180ms)}
 .hero-role{animation:role-arrive 1s .7s cubic-bezier(.16,1,.3,1) both}
 .hero-kicker,.hero-bottom,.hero-rule{animation:details-arrive .9s .9s ease both}
